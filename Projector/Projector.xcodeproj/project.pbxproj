@@ -10,11 +10,12 @@
 		C50D7DA622A04BEB00BAC840 /* Projector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C50D7D9C22A04BEB00BAC840 /* Projector.framework */; };
 		C50D7DAB22A04BEB00BAC840 /* ProjectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50D7DAA22A04BEB00BAC840 /* ProjectorTests.swift */; };
 		C50D7DAD22A04BEB00BAC840 /* Projector.h in Headers */ = {isa = PBXBuildFile; fileRef = C50D7D9F22A04BEB00BAC840 /* Projector.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C5FC96F722A0BD77005F3B7D /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC96F622A0BD77005F3B7D /* PlayerView.swift */; };
+		C5FC96F722A0BD77005F3B7D /* ProjectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC96F622A0BD77005F3B7D /* ProjectorView.swift */; };
 		C5FC973422A0D1D8005F3B7D /* PlaybackStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC973322A0D1D8005F3B7D /* PlaybackStateMachine.swift */; };
 		C5FC973622A0D61B005F3B7D /* PlaybackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC973522A0D61B005F3B7D /* PlaybackState.swift */; };
 		C5FC973B22A102C5005F3B7D /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC973922A102C5005F3B7D /* Transition.swift */; };
 		C5FC973C22A102C5005F3B7D /* StateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC973A22A102C5005F3B7D /* StateMachine.swift */; };
+		C5FC973E22A12356005F3B7D /* ProjectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5FC973D22A12356005F3B7D /* ProjectorView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,11 +35,12 @@
 		C50D7DA522A04BEB00BAC840 /* ProjectorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjectorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C50D7DAA22A04BEB00BAC840 /* ProjectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectorTests.swift; sourceTree = "<group>"; };
 		C50D7DAC22A04BEB00BAC840 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C5FC96F622A0BD77005F3B7D /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		C5FC96F622A0BD77005F3B7D /* ProjectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectorView.swift; sourceTree = "<group>"; };
 		C5FC973322A0D1D8005F3B7D /* PlaybackStateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackStateMachine.swift; sourceTree = "<group>"; };
 		C5FC973522A0D61B005F3B7D /* PlaybackState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackState.swift; sourceTree = "<group>"; };
 		C5FC973922A102C5005F3B7D /* Transition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
 		C5FC973A22A102C5005F3B7D /* StateMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateMachine.swift; sourceTree = "<group>"; };
+		C5FC973D22A12356005F3B7D /* ProjectorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectorView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +84,8 @@
 			isa = PBXGroup;
 			children = (
 				C50D7D9F22A04BEB00BAC840 /* Projector.h */,
-				C5FC96F622A0BD77005F3B7D /* PlayerView.swift */,
+				C5FC96F622A0BD77005F3B7D /* ProjectorView.swift */,
+				C5FC973D22A12356005F3B7D /* ProjectorView.xib */,
 				C5FC973222A0C1C1005F3B7D /* Models */,
 				C5FC973722A10119005F3B7D /* Third Party */,
 				C50D7DA022A04BEB00BAC840 /* Info.plist */,
@@ -217,6 +220,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5FC973E22A12356005F3B7D /* ProjectorView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,7 +242,7 @@
 				C5FC973422A0D1D8005F3B7D /* PlaybackStateMachine.swift in Sources */,
 				C5FC973B22A102C5005F3B7D /* Transition.swift in Sources */,
 				C5FC973C22A102C5005F3B7D /* StateMachine.swift in Sources */,
-				C5FC96F722A0BD77005F3B7D /* PlayerView.swift in Sources */,
+				C5FC96F722A0BD77005F3B7D /* ProjectorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

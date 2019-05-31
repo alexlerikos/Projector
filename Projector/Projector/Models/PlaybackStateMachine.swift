@@ -20,7 +20,7 @@ import UIKit
 //    case startPlayback
 //    case playBackStarted
 //    case playbackFailed
-//    case pause
+//    case playPauseTriggered
 //    case stop
 //}
 
@@ -58,11 +58,11 @@ class PlaybackStateMachine: NSObject {
         let t3 = Transition<PlaybackState, PlaybackEvent>(with: .playBackStarted,
                                                           from: .startingPlayback,
                                                           to: .playing)
-        let t4 = Transition<PlaybackState, PlaybackEvent>(with: .pause,
+        let t4 = Transition<PlaybackState, PlaybackEvent>(with: .playPauseTriggered,
                                                           from: .playing,
                                                           to: .paused)
         
-        let t5 = Transition<PlaybackState, PlaybackEvent>(with: .startPlayback,
+        let t5 = Transition<PlaybackState, PlaybackEvent>(with: .playPauseTriggered,
                                                           from: .paused,
                                                           to: .playing)
         
