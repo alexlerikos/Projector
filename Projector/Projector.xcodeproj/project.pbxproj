@@ -10,6 +10,7 @@
 		C50D7DA622A04BEB00BAC840 /* Projector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C50D7D9C22A04BEB00BAC840 /* Projector.framework */; };
 		C50D7DAB22A04BEB00BAC840 /* ProjectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50D7DAA22A04BEB00BAC840 /* ProjectorTests.swift */; };
 		C50D7DAD22A04BEB00BAC840 /* Projector.h in Headers */ = {isa = PBXBuildFile; fileRef = C50D7D9F22A04BEB00BAC840 /* Projector.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C5FC96F722A0BD77005F3B7D /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC96F622A0BD77005F3B7D /* PlayerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		C50D7DA522A04BEB00BAC840 /* ProjectorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjectorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C50D7DAA22A04BEB00BAC840 /* ProjectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectorTests.swift; sourceTree = "<group>"; };
 		C50D7DAC22A04BEB00BAC840 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C5FC96F622A0BD77005F3B7D /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				C50D7D9F22A04BEB00BAC840 /* Projector.h */,
+				C5FC96F622A0BD77005F3B7D /* PlayerView.swift */,
 				C50D7DA022A04BEB00BAC840 /* Info.plist */,
 			);
 			path = Projector;
@@ -148,6 +151,7 @@
 				TargetAttributes = {
 					C50D7D9B22A04BEB00BAC840 = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
 					};
 					C50D7DA422A04BEB00BAC840 = {
 						CreatedOnToolsVersion = 10.2.1;
@@ -194,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5FC96F722A0BD77005F3B7D /* PlayerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +346,7 @@
 		C50D7DB122A04BEB00BAC840 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -358,6 +364,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kosdesigns.Projector;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -366,6 +373,7 @@
 		C50D7DB222A04BEB00BAC840 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -391,6 +399,7 @@
 		C50D7DB422A04BEB00BAC840 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AMD4AC8KYB;
 				INFOPLIST_FILE = ProjectorTests/Info.plist;
@@ -409,6 +418,7 @@
 		C50D7DB522A04BEB00BAC840 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AMD4AC8KYB;
 				INFOPLIST_FILE = ProjectorTests/Info.plist;
