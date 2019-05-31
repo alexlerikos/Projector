@@ -11,6 +11,10 @@
 		C50D7DAB22A04BEB00BAC840 /* ProjectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50D7DAA22A04BEB00BAC840 /* ProjectorTests.swift */; };
 		C50D7DAD22A04BEB00BAC840 /* Projector.h in Headers */ = {isa = PBXBuildFile; fileRef = C50D7D9F22A04BEB00BAC840 /* Projector.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C5FC96F722A0BD77005F3B7D /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC96F622A0BD77005F3B7D /* PlayerView.swift */; };
+		C5FC973422A0D1D8005F3B7D /* PlaybackStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC973322A0D1D8005F3B7D /* PlaybackStateMachine.swift */; };
+		C5FC973622A0D61B005F3B7D /* PlaybackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC973522A0D61B005F3B7D /* PlaybackState.swift */; };
+		C5FC973B22A102C5005F3B7D /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC973922A102C5005F3B7D /* Transition.swift */; };
+		C5FC973C22A102C5005F3B7D /* StateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC973A22A102C5005F3B7D /* StateMachine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +35,10 @@
 		C50D7DAA22A04BEB00BAC840 /* ProjectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectorTests.swift; sourceTree = "<group>"; };
 		C50D7DAC22A04BEB00BAC840 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5FC96F622A0BD77005F3B7D /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		C5FC973322A0D1D8005F3B7D /* PlaybackStateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackStateMachine.swift; sourceTree = "<group>"; };
+		C5FC973522A0D61B005F3B7D /* PlaybackState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackState.swift; sourceTree = "<group>"; };
+		C5FC973922A102C5005F3B7D /* Transition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
+		C5FC973A22A102C5005F3B7D /* StateMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateMachine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +83,8 @@
 			children = (
 				C50D7D9F22A04BEB00BAC840 /* Projector.h */,
 				C5FC96F622A0BD77005F3B7D /* PlayerView.swift */,
+				C5FC973222A0C1C1005F3B7D /* Models */,
+				C5FC973722A10119005F3B7D /* Third Party */,
 				C50D7DA022A04BEB00BAC840 /* Info.plist */,
 			);
 			path = Projector;
@@ -87,6 +97,32 @@
 				C50D7DAC22A04BEB00BAC840 /* Info.plist */,
 			);
 			path = ProjectorTests;
+			sourceTree = "<group>";
+		};
+		C5FC973222A0C1C1005F3B7D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C5FC973322A0D1D8005F3B7D /* PlaybackStateMachine.swift */,
+				C5FC973522A0D61B005F3B7D /* PlaybackState.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C5FC973722A10119005F3B7D /* Third Party */ = {
+			isa = PBXGroup;
+			children = (
+				C5FC973822A10277005F3B7D /* Stateful */,
+			);
+			path = "Third Party";
+			sourceTree = "<group>";
+		};
+		C5FC973822A10277005F3B7D /* Stateful */ = {
+			isa = PBXGroup;
+			children = (
+				C5FC973A22A102C5005F3B7D /* StateMachine.swift */,
+				C5FC973922A102C5005F3B7D /* Transition.swift */,
+			);
+			path = Stateful;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +234,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5FC973622A0D61B005F3B7D /* PlaybackState.swift in Sources */,
+				C5FC973422A0D1D8005F3B7D /* PlaybackStateMachine.swift in Sources */,
+				C5FC973B22A102C5005F3B7D /* Transition.swift in Sources */,
+				C5FC973C22A102C5005F3B7D /* StateMachine.swift in Sources */,
 				C5FC96F722A0BD77005F3B7D /* PlayerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
