@@ -28,7 +28,7 @@ class ProjectorTests: XCTestCase {
     }
     
     func testTransitionCount() {
-        XCTAssertEqual(self.playbackStateMachine.stateMachineTransitions().count, 8)
+        XCTAssertEqual(self.playbackStateMachine.stateMachineTransitions().count, 9)
     }
     
 

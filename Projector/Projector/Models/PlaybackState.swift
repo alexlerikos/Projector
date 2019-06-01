@@ -21,6 +21,6 @@ enum PlaybackEvent {
     case startPlayback
     case playBackStarted
     case playbackFailed
-    case pause
+    case playPauseTriggered
     case stop
 }

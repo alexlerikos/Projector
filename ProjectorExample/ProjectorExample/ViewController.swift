@@ -7,11 +7,20 @@
 //
 
 import UIKit
+import Projector
 
 class ViewController: UIViewController {
-
+    
+    let kVideoName = "EJ_pass"
+    let kVideoType = "mp4"
+    
+    
+    @IBOutlet weak var projectorView: ProjectorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let videoURL = URL(fileURLWithPath: Bundle.main.path(forResource: kVideoName, ofType: kVideoType)!)
+        self.projectorView.loadURLAsset(videoURL)
     }
 
 

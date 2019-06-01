@@ -20,7 +20,7 @@ import UIKit
 //    case startPlayback
 //    case playBackStarted
 //    case playbackFailed
-//    case pause
+//    case playPauseTriggered
 //    case stop
 //}
 
@@ -31,8 +31,8 @@ class PlaybackStateMachine: NSObject {
     init(dispatchQueue:DispatchQueue) {
         self.dispatchQueue = dispatchQueue
         self.stateMachine = StateMachine<PlaybackState, PlaybackEvent>(initialState: .stopped)
-        
         super.init()
+        self.initializeTransitions()
     }
     
     
@@ -51,18 +51,14 @@ class PlaybackStateMachine: NSObject {
         let t1 = Transition<PlaybackState, PlaybackEvent>(with: .startPlayback,
                                                           from: .stopped,
                                                           to: .startingPlayback)
-        
-        let t2 = Transition<PlaybackState, PlaybackEvent>(with: .startPlayback,
-                                                          from: .stopped,
-                                                          to: .startingPlayback)
         let t3 = Transition<PlaybackState, PlaybackEvent>(with: .playBackStarted,
                                                           from: .startingPlayback,
                                                           to: .playing)
-        let t4 = Transition<PlaybackState, PlaybackEvent>(with: .pause,
+        let t4 = Transition<PlaybackState, PlaybackEvent>(with: .playPauseTriggered,
                                                           from: .playing,
                                                           to: .paused)
         
-        let t5 = Transition<PlaybackState, PlaybackEvent>(with: .startPlayback,
+        let t5 = Transition<PlaybackState, PlaybackEvent>(with: .playPauseTriggered,
                                                           from: .paused,
                                                           to: .playing)
         
@@ -77,16 +73,20 @@ class PlaybackStateMachine: NSObject {
                                                           from: .playing,
                                                           to: .failed)
         
+        let t9 = Transition<PlaybackState, PlaybackEvent>(with: .playPauseTriggered,
+                                                          from: .stopped,
+                                                          to: .playing)
+        
         var transitions:[Transition<PlaybackState, PlaybackEvent>] = []
         
         transitions.append(t1)
-        transitions.append(t2)
         transitions.append(t3)
         transitions.append(t4)
         transitions.append(t5)
         transitions.append(t6)
         transitions.append(t7)
         transitions.append(t8)
+        transitions.append(t9)
         return transitions
     }
 }
