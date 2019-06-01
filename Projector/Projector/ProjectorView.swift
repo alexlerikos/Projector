@@ -58,6 +58,7 @@ public class ProjectorView: UIView {
     @IBOutlet weak var progressBarSlider: UISlider!
     @IBOutlet weak var playPauseButton: UIButton!
     @IBOutlet weak var controlsContainerView: UIView!
+    @IBOutlet var tapGestureRecognizer: UITapGestureRecognizer!
     
     
     // Initializers
@@ -138,7 +139,6 @@ public class ProjectorView: UIView {
             self.progressBarSlider.maximumValue = Float(videoDuration)
             self.progressBarSlider.setValue(Float(elapsedTime), animated: true)
         }
-
     }
 
     @IBAction func playPauseButtonPressed(_ sender: Any) {
@@ -158,12 +158,28 @@ public class ProjectorView: UIView {
     }
     
     @IBAction func sliderMovingAction(_ sender: Any) {
+        guard self.player?.currentItem != nil else {
+            return
+        }
         
+        let elapsedTime = Float64(progressBarSlider.value)
+        
+        self.player?.seek(to: CMTimeMakeWithSeconds(elapsedTime, preferredTimescale: 100), toleranceBefore: CMTime.zero, toleranceAfter: CMTime.zero) { (completed:Bool) -> Void in
+            if self.player?.rate == 0.0 {
+                self.playFromCurrentTime()
+            }
+        }
     }
     
     @IBAction func sliderStartedMoving(_ sender: Any) {
-       
+        self.pause()
     }
+    
+    
+    @IBAction func sliderReleased(_ sender: Any) {
+        self.controlsContainerView.fadeOutWithDelay(1.0)
+    }
+    
     
     public func playFromBeginning() {
         self.player?.seek(to: CMTime.zero)
@@ -174,8 +190,27 @@ public class ProjectorView: UIView {
         self.playPauseButton.setTitle("Pause", for: .normal)
         displayLink.isPaused = false
         self.player?.play()
+        self.controlsContainerView.fadeOut()
     }
 
+    @IBAction func tapGestureAction(_ sender: Any) {
+
+        if self.controlsContainerView.alpha == 0 {
+            self.controlsContainerView.fadeInCompletionWithHandler({(complete) -> Void in
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {() -> Void in
+                    guard !self.progressBarSlider.isTouchInside else {
+                        return
+                    }
+                    self.controlsContainerView.fadeOut()
+                })
+            })
+        } else if self.controlsContainerView.alpha == 1 {
+            self.controlsContainerView.fadeOut()
+        }
+        
+    }
+    
+    
     public func pause() {
         guard self.stateMachine.stateMachine.currentState == .paused else {
             return
