@@ -107,7 +107,7 @@ public class ProjectorView: UIView {
         }
     }
 
-    public func addTimeObserver() {
+    private func addTimeObserver() {
         let timeInterval = CMTimeMakeWithSeconds(0.1, preferredTimescale: 10)
         self.player?.addPeriodicTimeObserver(forInterval: timeInterval, queue: DispatchQueue.main, using: {(elapsedTime: CMTime ) -> Void in
                 self.handleTimeObserver(elapsedTime)
@@ -179,6 +179,7 @@ public class ProjectorView: UIView {
         let playerItem = AVPlayerItem(asset: asset)
         playerItem.add(playerItemVideoOutput)
         self.player?.replaceCurrentItem(with: playerItem)
+        self.addTimeObserver()
     }
 
 
