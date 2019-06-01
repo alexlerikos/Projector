@@ -138,7 +138,12 @@ public class ProjectorView: UIView {
             let elapsedTime = CMTimeGetSeconds(elapsedTime)
             self.progressBarSlider.maximumValue = Float(videoDuration)
             self.progressBarSlider.setValue(Float(elapsedTime), animated: true)
+            if elapsedTime == videoDuration {
+                self.playbackFinished()
+            }
         }
+        
+
     }
 
     @IBAction func playPauseButtonPressed(_ sender: Any) {
@@ -150,6 +155,8 @@ public class ProjectorView: UIView {
                     self.pause()
                 } else if self.stateMachine.stateMachine.currentState == .playing {
                     self.playFromCurrentTime()
+                } else if self.stateMachine.stateMachine.currentState == .playFromBeginning {
+                    self.playFromBeginning()
                 }
             case .failure:
                 print("Error changing state from: \(self.stateMachine.stateMachine.currentState)")
@@ -177,13 +184,27 @@ public class ProjectorView: UIView {
     
     
     @IBAction func sliderReleased(_ sender: Any) {
-        self.controlsContainerView.fadeOutWithDelay(1.0)
+        let slider = sender as! UISlider
+        if slider.value == 1.0 {
+            self.playbackFinished()
+        } else {
+            self.controlsContainerView.fadeOutWithDelay(1.0)
+        }
+        
     }
     
     
     public func playFromBeginning() {
         self.player?.seek(to: CMTime.zero)
-        self.playFromCurrentTime()
+        self.stateMachine.stateMachine.process(event: .playBackStarted, callback: { result in
+            switch result {
+            case .success:
+                self.playFromCurrentTime()
+            case .failure:
+                print("Error changing state from: \(self.stateMachine.stateMachine.currentState)")
+            }
+        })
+        
     }
 
     public func playFromCurrentTime() {
@@ -197,6 +218,7 @@ public class ProjectorView: UIView {
 
         if self.controlsContainerView.alpha == 0 {
             self.controlsContainerView.fadeInCompletionWithHandler({(complete) -> Void in
+                // replace with nstimer and use a hashmap for the timers - Alex 6-1-2019    q1d32
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {() -> Void in
                     guard !self.progressBarSlider.isTouchInside else {
                         return
@@ -226,6 +248,19 @@ public class ProjectorView: UIView {
         playerItem.add(playerItemVideoOutput)
         self.player?.replaceCurrentItem(with: playerItem)
         self.addTimeObserver()
+    }
+    
+    private func playbackFinished(){
+        self.stateMachine.stateMachine.process(event: .playbackFinished, callback: { result in
+            switch result {
+            case .success:
+                print("success current state: \(self.stateMachine.stateMachine.currentState)")
+                self.playPauseButton.setTitle("Restart", for: .normal)
+                self.controlsContainerView.fadeIn()
+            case .failure:
+                print("Error changing state from: \(self.stateMachine.stateMachine.currentState)")
+            }
+        })
     }
 
 

@@ -27,10 +27,13 @@ import UIKit
 class PlaybackStateMachine: NSObject {
     let dispatchQueue: DispatchQueue
     let stateMachine: StateMachine<PlaybackState, PlaybackEvent>
+    
+    let DEBUG_ON = true
 
     init(dispatchQueue:DispatchQueue) {
         self.dispatchQueue = dispatchQueue
         self.stateMachine = StateMachine<PlaybackState, PlaybackEvent>(initialState: .stopped)
+        self.stateMachine.enableLogging = DEBUG_ON
         super.init()
         self.initializeTransitions()
     }
@@ -75,7 +78,14 @@ class PlaybackStateMachine: NSObject {
         
         let t9 = Transition<PlaybackState, PlaybackEvent>(with: .playPauseTriggered,
                                                           from: .stopped,
-                                                          to: .playing)
+                                                          to: .playFromBeginning)
+        let t10 = Transition<PlaybackState, PlaybackEvent>(with: .playbackFinished,
+                                                           from: .playing,
+                                                           to: .stopped)
+        
+        let t11 = Transition<PlaybackState, PlaybackEvent>(with: .playBackStarted,
+                                                           from: .playFromBeginning,
+                                                           to: .playing)
         
         var transitions:[Transition<PlaybackState, PlaybackEvent>] = []
         
@@ -87,6 +97,8 @@ class PlaybackStateMachine: NSObject {
         transitions.append(t7)
         transitions.append(t8)
         transitions.append(t9)
+        transitions.append(t10)
+        transitions.append(t11)
         return transitions
     }
 }

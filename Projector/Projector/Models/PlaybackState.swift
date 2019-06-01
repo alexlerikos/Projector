@@ -13,6 +13,7 @@ enum PlaybackState {
     case stopped
     case startingPlayback
     case playing
+    case playFromBeginning
     case paused
     case failed
 }
@@ -23,4 +24,5 @@ enum PlaybackEvent {
     case playbackFailed
     case playPauseTriggered
     case stop
+    case playbackFinished
 }
