@@ -1,50 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina5_9" orientation="landscape">
+    <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProjectorView" customModule="Projector" customModuleProvider="target">
             <connections>
+                <outlet property="controlsContainerView" destination="PwO-Vl-YRy" id="toA-cf-ypA"/>
                 <outlet property="playPauseButton" destination="qpV-pY-7hO" id="jbV-2s-7H3"/>
                 <outlet property="progressBarSlider" destination="Wxy-Yl-7Wt" id="qxM-tK-BRR"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
+        <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Wxy-Yl-7Wt">
-                    <rect key="frame" x="42" y="324" width="742" height="31"/>
-                    <connections>
-                        <action selector="sliderMovingAction:" destination="-1" eventType="valueChanged" id="rh5-Lj-qlW"/>
-                        <action selector="sliderStartedMoving:" destination="-1" eventType="touchDown" id="nrU-Rq-xK5"/>
-                    </connections>
-                </slider>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qpV-pY-7hO">
-                    <rect key="frame" x="383" y="172.66666666666666" width="46" height="30"/>
-                    <state key="normal" title="Button"/>
-                    <connections>
-                        <action selector="playPauseButtonPressed:" destination="-1" eventType="touchUpInside" id="0n2-D6-p9R"/>
-                    </connections>
-                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PwO-Vl-YRy">
+                    <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qpV-pY-7hO">
+                            <rect key="frame" x="310.5" y="172.5" width="46" height="30"/>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="playPauseButtonPressed:" destination="-1" eventType="touchUpInside" id="0n2-D6-p9R"/>
+                            </connections>
+                        </button>
+                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Wxy-Yl-7Wt">
+                            <rect key="frame" x="28" y="337" width="611" height="31"/>
+                            <connections>
+                                <action selector="sliderMovingAction:" destination="-1" eventType="valueChanged" id="rh5-Lj-qlW"/>
+                                <action selector="sliderStartedMoving:" destination="-1" eventType="touchDown" id="nrU-Rq-xK5"/>
+                            </connections>
+                        </slider>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="Wxy-Yl-7Wt" firstAttribute="leading" secondItem="PwO-Vl-YRy" secondAttribute="leading" constant="30" id="5Fg-YW-mv2"/>
+                        <constraint firstItem="qpV-pY-7hO" firstAttribute="centerX" secondItem="PwO-Vl-YRy" secondAttribute="centerX" id="UUy-Gp-rPX"/>
+                        <constraint firstItem="qpV-pY-7hO" firstAttribute="centerY" secondItem="PwO-Vl-YRy" secondAttribute="centerY" id="c8Y-fK-JWX"/>
+                        <constraint firstAttribute="bottom" secondItem="Wxy-Yl-7Wt" secondAttribute="bottom" constant="8" id="k3n-Zp-ZMK"/>
+                        <constraint firstAttribute="trailing" secondItem="Wxy-Yl-7Wt" secondAttribute="trailing" constant="30" id="wqq-rV-GOq"/>
+                    </constraints>
+                </view>
             </subviews>
             <constraints>
-                <constraint firstItem="Wxy-Yl-7Wt" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="3pv-pk-hkv"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Wxy-Yl-7Wt" secondAttribute="bottom" id="DcL-h6-6BC"/>
-                <constraint firstAttribute="trailing" secondItem="Wxy-Yl-7Wt" secondAttribute="trailing" constant="30" id="Ik7-zm-XpU"/>
-                <constraint firstItem="qpV-pY-7hO" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Loc-x9-eZ9"/>
-                <constraint firstItem="qpV-pY-7hO" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="PXL-Q6-mwy"/>
+                <constraint firstItem="PwO-Vl-YRy" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="AgR-1t-kjS"/>
+                <constraint firstItem="PwO-Vl-YRy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="TV9-od-KVW"/>
+                <constraint firstItem="PwO-Vl-YRy" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="epw-DB-6xN"/>
+                <constraint firstItem="PwO-Vl-YRy" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="uzC-Q5-MqA"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="138.61607142857142" y="152.17391304347828"/>
+            <point key="canvasLocation" x="138.0809595202399" y="151.19999999999999"/>
         </view>
     </objects>
 </document>

@@ -57,6 +57,7 @@ public class ProjectorView: UIView {
     // IB Properties
     @IBOutlet weak var progressBarSlider: UISlider!
     @IBOutlet weak var playPauseButton: UIButton!
+    @IBOutlet weak var controlsContainerView: UIView!
     
     
     // Initializers
@@ -86,15 +87,25 @@ public class ProjectorView: UIView {
         contentView.center = self.center
         contentView.autoresizingMask = []
         contentView.translatesAutoresizingMaskIntoConstraints = true
+
         
         stateMachine = PlaybackStateMachine(dispatchQueue: dispatchQueue)
         self.addTimeObserver()
         
         // delete this later, just for skeleton implementation
-        self.playPauseButton.setTitle("Paused", for: .normal)
+        self.playPauseButton.setTitle("Play", for: .normal)
         self.progressBarSlider.setValue(0.0, animated: false)
-        
+        self.controlsContainerView.backgroundColor = UIColor(white: 0.0, alpha: 0.5)
+
         self.player = AVPlayer()
+    }
+    
+    override public func layoutSubviews() {
+        super.layoutSubviews()
+        
+        // we need to adjust the frame of the subview to no longer match the size used
+        // in the XIB file BUT the actual frame we got assinged from the superview
+        self.contentView.frame = self.bounds
     }
     
     @objc private func readBuffer(_ sender: CADisplayLink) {
