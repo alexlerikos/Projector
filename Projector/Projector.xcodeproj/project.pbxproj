@@ -17,6 +17,7 @@
 		C5FC973C22A102C5005F3B7D /* StateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC973A22A102C5005F3B7D /* StateMachine.swift */; };
 		C5FC973E22A12356005F3B7D /* ProjectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5FC973D22A12356005F3B7D /* ProjectorView.xib */; };
 		C5FC97D522A20D5E005F3B7D /* AVPlayer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC97D422A20D5E005F3B7D /* AVPlayer+Extensions.swift */; };
+		C5FC97D722A241E0005F3B7D /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC97D622A241E0005F3B7D /* UIView+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		C5FC973A22A102C5005F3B7D /* StateMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateMachine.swift; sourceTree = "<group>"; };
 		C5FC973D22A12356005F3B7D /* ProjectorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectorView.xib; sourceTree = "<group>"; };
 		C5FC97D422A20D5E005F3B7D /* AVPlayer+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVPlayer+Extensions.swift"; sourceTree = "<group>"; };
+		C5FC97D622A241E0005F3B7D /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				C5FC97D422A20D5E005F3B7D /* AVPlayer+Extensions.swift */,
+				C5FC97D622A241E0005F3B7D /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5FC97D722A241E0005F3B7D /* UIView+Extensions.swift in Sources */,
 				C5FC973622A0D61B005F3B7D /* PlaybackState.swift in Sources */,
 				C5FC973422A0D1D8005F3B7D /* PlaybackStateMachine.swift in Sources */,
 				C5FC973B22A102C5005F3B7D /* Transition.swift in Sources */,

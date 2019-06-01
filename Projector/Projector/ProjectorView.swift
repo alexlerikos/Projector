@@ -57,6 +57,8 @@ public class ProjectorView: UIView {
     // IB Properties
     @IBOutlet weak var progressBarSlider: UISlider!
     @IBOutlet weak var playPauseButton: UIButton!
+    @IBOutlet weak var controlsContainerView: UIView!
+    @IBOutlet var tapGestureRecognizer: UITapGestureRecognizer!
     
     
     // Initializers
@@ -86,15 +88,25 @@ public class ProjectorView: UIView {
         contentView.center = self.center
         contentView.autoresizingMask = []
         contentView.translatesAutoresizingMaskIntoConstraints = true
+
         
         stateMachine = PlaybackStateMachine(dispatchQueue: dispatchQueue)
         self.addTimeObserver()
         
         // delete this later, just for skeleton implementation
-        self.playPauseButton.setTitle("Paused", for: .normal)
+        self.playPauseButton.setTitle("Play", for: .normal)
         self.progressBarSlider.setValue(0.0, animated: false)
-        
+        self.controlsContainerView.backgroundColor = UIColor(white: 0.0, alpha: 0.5)
+
         self.player = AVPlayer()
+    }
+    
+    override public func layoutSubviews() {
+        super.layoutSubviews()
+        
+        // we need to adjust the frame of the subview to no longer match the size used
+        // in the XIB file BUT the actual frame we got assinged from the superview
+        self.contentView.frame = self.bounds
     }
     
     @objc private func readBuffer(_ sender: CADisplayLink) {
@@ -127,7 +139,6 @@ public class ProjectorView: UIView {
             self.progressBarSlider.maximumValue = Float(videoDuration)
             self.progressBarSlider.setValue(Float(elapsedTime), animated: true)
         }
-
     }
 
     @IBAction func playPauseButtonPressed(_ sender: Any) {
@@ -147,12 +158,28 @@ public class ProjectorView: UIView {
     }
     
     @IBAction func sliderMovingAction(_ sender: Any) {
+        guard self.player?.currentItem != nil else {
+            return
+        }
         
+        let elapsedTime = Float64(progressBarSlider.value)
+        
+        self.player?.seek(to: CMTimeMakeWithSeconds(elapsedTime, preferredTimescale: 100), toleranceBefore: CMTime.zero, toleranceAfter: CMTime.zero) { (completed:Bool) -> Void in
+            if self.player?.rate == 0.0 {
+                self.playFromCurrentTime()
+            }
+        }
     }
     
     @IBAction func sliderStartedMoving(_ sender: Any) {
-       
+        self.pause()
     }
+    
+    
+    @IBAction func sliderReleased(_ sender: Any) {
+        self.controlsContainerView.fadeOutWithDelay(1.0)
+    }
+    
     
     public func playFromBeginning() {
         self.player?.seek(to: CMTime.zero)
@@ -163,8 +190,27 @@ public class ProjectorView: UIView {
         self.playPauseButton.setTitle("Pause", for: .normal)
         displayLink.isPaused = false
         self.player?.play()
+        self.controlsContainerView.fadeOut()
     }
 
+    @IBAction func tapGestureAction(_ sender: Any) {
+
+        if self.controlsContainerView.alpha == 0 {
+            self.controlsContainerView.fadeInCompletionWithHandler({(complete) -> Void in
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {() -> Void in
+                    guard !self.progressBarSlider.isTouchInside else {
+                        return
+                    }
+                    self.controlsContainerView.fadeOut()
+                })
+            })
+        } else if self.controlsContainerView.alpha == 1 {
+            self.controlsContainerView.fadeOut()
+        }
+        
+    }
+    
+    
     public func pause() {
         guard self.stateMachine.stateMachine.currentState == .paused else {
             return
