@@ -8,18 +8,25 @@
 
 import UIKit
 import AVKit
+import AVFoundation
 
-class ProjectorView: UIView {
+public class ProjectorView: UIView {
     // Public - AVPlayer Attributes
-    lazy var player: AVPlayer = {
-        return self.playerLayer.player!
-    }()
+    var player: AVPlayer? {
+        get {
+            return playerLayer.player
+        }
+        
+        set {
+            playerLayer.player = newValue
+        }
+    } 
     
     var playerLayer: AVPlayerLayer {
         return layer as! AVPlayerLayer
     }
     
-    override class var  layerClass: AnyClass {
+    override public class var layerClass: AnyClass {
         get {
             return AVPlayerLayer.self
         }
@@ -45,7 +52,7 @@ class ProjectorView: UIView {
     // Properties
     let nibName = "ProjectorView"
     var contentView: UIView!
-    var stateMachine:PlaybackStateMachine
+    var stateMachine:PlaybackStateMachine!
    
     // IB Properties
     @IBOutlet weak var progressBarSlider: UISlider!
@@ -80,19 +87,15 @@ class ProjectorView: UIView {
         contentView.autoresizingMask = []
         contentView.translatesAutoresizingMaskIntoConstraints = true
         
-        
         stateMachine = PlaybackStateMachine(dispatchQueue: dispatchQueue)
         self.addTimeObserver()
-        
-        
         
         // delete this later, just for skeleton implementation
         self.playPauseButton.setTitle("Paused", for: .normal)
         self.progressBarSlider.setValue(0.0, animated: false)
         
+        self.player = AVPlayer()
     }
-    
-    
     
     @objc private func readBuffer(_ sender: CADisplayLink) {
 
@@ -106,7 +109,7 @@ class ProjectorView: UIView {
 
     public func addTimeObserver() {
         let timeInterval = CMTimeMakeWithSeconds(0.1, preferredTimescale: 10)
-        self.player.addPeriodicTimeObserver(forInterval: timeInterval, queue: DispatchQueue.main, using: {(elapsedTime: CMTime ) ->
+        self.player?.addPeriodicTimeObserver(forInterval: timeInterval, queue: DispatchQueue.main, using: {(elapsedTime: CMTime ) -> Void in
                 self.handleTimeObserver(elapsedTime)
             }
         )
@@ -114,7 +117,7 @@ class ProjectorView: UIView {
 
     internal func handleTimeObserver(_ elapsedTime:CMTime) {
 
-        guard let currentItem = self.player.currentItem else {
+        guard let currentItem = self.player?.currentItem else {
             return
         }
 
@@ -128,6 +131,7 @@ class ProjectorView: UIView {
     }
 
     @IBAction func playPauseButtonPressed(_ sender: Any) {
+        print("currennt state \(self.stateMachine.stateMachine.currentState)")
         self.stateMachine.stateMachine.process(event: .playPauseTriggered, callback: { result in
             switch result {
             case .success:
@@ -151,23 +155,30 @@ class ProjectorView: UIView {
     }
     
     public func playFromBeginning() {
-        self.player.seek(to: CMTime.zero)
+        self.player?.seek(to: CMTime.zero)
         self.playFromCurrentTime()
     }
 
     public func playFromCurrentTime() {
         self.playPauseButton.setTitle("Pause", for: .normal)
         displayLink.isPaused = false
-        self.player.play()
+        self.player?.play()
     }
 
     public func pause() {
-        guard self.stateMachine.stateMachine.currentState == .playing || self.stateMachine.stateMachine.currentState == .startingPlayback else {
+        guard self.stateMachine.stateMachine.currentState == .paused else {
             return
         }
         self.playPauseButton.setTitle("Play", for: .normal)
         displayLink.isPaused = true
-        self.player.pause()
+        self.player?.pause()
+    }
+    
+    public func loadURLAsset(_ videoURL:URL){
+        let asset = AVAsset(url: videoURL)
+        let playerItem = AVPlayerItem(asset: asset)
+        playerItem.add(playerItemVideoOutput)
+        self.player?.replaceCurrentItem(with: playerItem)
     }
 
 
