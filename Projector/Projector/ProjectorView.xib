@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProjectorView" customModule="Projector" customModuleProvider="target">
             <connections>
                 <outlet property="controlsContainerView" destination="PwO-Vl-YRy" id="toA-cf-ypA"/>
+                <outlet property="loadingAnimationView" destination="yyN-Bs-wfn" id="PmC-dA-XTC"/>
                 <outlet property="playPauseButton" destination="qpV-pY-7hO" id="jbV-2s-7H3"/>
                 <outlet property="progressBarSlider" destination="Wxy-Yl-7Wt" id="qxM-tK-BRR"/>
                 <outlet property="tapGestureRecognizer" destination="yYh-4s-o5N" id="cTM-YE-aJP"/>
@@ -22,6 +23,13 @@
             <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yyN-Bs-wfn" customClass="LoadingAnimationView" customModule="Projector" customModuleProvider="target">
+                    <rect key="frame" x="308.5" y="162.5" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="duk-D7-RLd"/>
+                        <constraint firstAttribute="height" constant="50" id="q67-yr-0iV"/>
+                    </constraints>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PwO-Vl-YRy">
                     <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                     <subviews>
@@ -55,8 +63,10 @@
             <constraints>
                 <constraint firstItem="PwO-Vl-YRy" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="AgR-1t-kjS"/>
                 <constraint firstItem="PwO-Vl-YRy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="TV9-od-KVW"/>
+                <constraint firstItem="yyN-Bs-wfn" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="byZ-dP-pHN"/>
                 <constraint firstItem="PwO-Vl-YRy" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="epw-DB-6xN"/>
                 <constraint firstItem="PwO-Vl-YRy" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="uzC-Q5-MqA"/>
+                <constraint firstItem="yyN-Bs-wfn" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="wyQ-Tc-Wfn"/>
             </constraints>
             <connections>
                 <outletCollection property="gestureRecognizers" destination="yYh-4s-o5N" appends="YES" id="a2E-U5-OL3"/>

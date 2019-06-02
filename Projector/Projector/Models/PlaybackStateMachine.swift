@@ -8,27 +8,11 @@
 
 import UIKit
 
-//enum PlaybackState {
-//    case stopped
-//    case startingPlayback
-//    case playing
-//    case paused
-//    case failed
-//}
-//
-//enum PlaybackEvent {
-//    case startPlayback
-//    case playBackStarted
-//    case playbackFailed
-//    case playPauseTriggered
-//    case stop
-//}
-
 class PlaybackStateMachine: NSObject {
     let dispatchQueue: DispatchQueue
     let stateMachine: StateMachine<PlaybackState, PlaybackEvent>
     
-    let DEBUG_ON = true
+    let DEBUG_ON = false
 
     init(dispatchQueue:DispatchQueue) {
         self.dispatchQueue = dispatchQueue

@@ -32,27 +32,23 @@ public class ProjectorView: UIView {
         }
     }
     
-    var playbackLikelyToKeepUpContext = 0
-    var asset: AVAsset!
-    var playerItem: AVPlayerItem?
-
-    lazy var playerItemVideoOutput: AVPlayerItemVideoOutput = {
-        let attributes = [kCVPixelBufferPixelFormatTypeKey as String : Int(kCVPixelFormatType_32BGRA)]
-        return AVPlayerItemVideoOutput(pixelBufferAttributes: attributes)
-    }()
+    private var playbackLikelyToKeepUpContext = 0
+    private var asset: AVAsset!
+    private var playerItem: AVPlayerItem?
+    @IBOutlet weak var loadingAnimationView: LoadingAnimationView!
     
-    lazy var displayLink: CADisplayLink = {
-        let dl = CADisplayLink(target: self, selector: #selector(readBuffer(_:)))
-        dl.add(to: .current, forMode: RunLoop.Mode.default)
-        dl.isPaused = true
-        return dl
-    }()
-    
+    // KVO Context
+    private var playerItemContext = 0
     
     // Properties
-    let nibName = "ProjectorView"
-    var contentView: UIView!
-    var stateMachine:PlaybackStateMachine!
+    private let nibName = "ProjectorView"
+    private var contentView: UIView!
+    private var stateMachine:PlaybackStateMachine!
+    
+    let requiredAssetKeys = [
+        "playable",
+        "hasProtectedContent"
+    ]
    
     // IB Properties
     @IBOutlet weak var progressBarSlider: UISlider!
@@ -61,7 +57,7 @@ public class ProjectorView: UIView {
     @IBOutlet var tapGestureRecognizer: UITapGestureRecognizer!
     
     
-    // Initializers
+    // MARK: Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setUpView(dispatchQueue: DispatchQueue.main)
@@ -101,6 +97,7 @@ public class ProjectorView: UIView {
         self.player = AVPlayer()
     }
     
+    // MARK: Overrided Methods
     override public func layoutSubviews() {
         super.layoutSubviews()
         
@@ -109,16 +106,60 @@ public class ProjectorView: UIView {
         self.contentView.frame = self.bounds
     }
     
-    @objc private func readBuffer(_ sender: CADisplayLink) {
-
-        var currentTime = CMTime.invalid
-        let nextVSync = sender.timestamp + sender.duration
-        currentTime = playerItemVideoOutput.itemTime(forHostTime: nextVSync)
-
-        if playerItemVideoOutput.hasNewPixelBuffer(forItemTime: currentTime), let _ = playerItemVideoOutput.copyPixelBuffer(forItemTime: currentTime, itemTimeForDisplay: nil) {
+    // From https://developer.apple.com/documentation/avfoundation/media_assets_playback_and_editing/responding_to_playback_state_changes
+    override public func observeValue(forKeyPath keyPath: String?,
+                               of object: Any?,
+                               change: [NSKeyValueChangeKey : Any]?,
+                               context: UnsafeMutableRawPointer?) {
+        
+        // Only handle observations for the playerItemContext
+        guard context == &playerItemContext else {
+            super.observeValue(forKeyPath: keyPath,
+                               of: object,
+                               change: change,
+                               context: context)
+            return
         }
+        
+        // make sure playeritem is not nil
+        guard object is AVPlayerItem else {
+            super.observeValue(forKeyPath: keyPath,
+                               of: object,
+                               change: change,
+                               context: context)
+            return
+        }
+        
+        switch keyPath {
+        case #keyPath(AVPlayerItem.isPlaybackBufferFull):
+            self.loadingAnimationView.stopAnimation()
+            break
+        case #keyPath(AVPlayerItem.isPlaybackLikelyToKeepUp):
+            self.loadingAnimationView.stopAnimation()
+            break
+        case #keyPath(AVPlayerItem.isPlaybackBufferEmpty):
+            self.loadingAnimationView.startAnimation()
+            break
+        default:
+            break
+        }
+        
+    }
+    
+    // MARK: Public API
+    public func loadURLAsset(_ videoURL:URL){
+        let asset = AVAsset(url: videoURL)
+        let playerItem = AVPlayerItem(asset: asset, automaticallyLoadedAssetKeys: requiredAssetKeys)
+        
+        playerItem.addObserver(self, forKeyPath: #keyPath(AVPlayerItem.isPlaybackBufferFull), options: [.new], context: &playerItemContext)
+        playerItem.addObserver(self, forKeyPath: #keyPath(AVPlayerItem.isPlaybackLikelyToKeepUp), options: [.new], context: &playerItemContext)
+        playerItem.addObserver(self, forKeyPath: #keyPath(AVPlayerItem.isPlaybackBufferEmpty), options: [.new], context: &playerItemContext)
+        
+        self.player?.replaceCurrentItem(with: playerItem)
+        self.addTimeObserver()
     }
 
+    // MARK: Time Observer
     private func addTimeObserver() {
         let timeInterval = CMTimeMakeWithSeconds(0.1, preferredTimescale: 10)
         self.player?.addPeriodicTimeObserver(forInterval: timeInterval, queue: DispatchQueue.main, using: {(elapsedTime: CMTime ) -> Void in
@@ -145,7 +186,8 @@ public class ProjectorView: UIView {
         
 
     }
-
+    
+    // MARK: IBA Actions
     @IBAction func playPauseButtonPressed(_ sender: Any) {
         print("currennt state \(self.stateMachine.stateMachine.currentState)")
         self.stateMachine.stateMachine.process(event: .playPauseTriggered, callback: { result in
@@ -193,29 +235,8 @@ public class ProjectorView: UIView {
         
     }
     
-    
-    public func playFromBeginning() {
-        self.player?.seek(to: CMTime.zero)
-        self.stateMachine.stateMachine.process(event: .playBackStarted, callback: { result in
-            switch result {
-            case .success:
-                self.playFromCurrentTime()
-            case .failure:
-                print("Error changing state from: \(self.stateMachine.stateMachine.currentState)")
-            }
-        })
-        
-    }
-
-    public func playFromCurrentTime() {
-        self.playPauseButton.setTitle("Pause", for: .normal)
-        displayLink.isPaused = false
-        self.player?.play()
-        self.controlsContainerView.fadeOut()
-    }
-
     @IBAction func tapGestureAction(_ sender: Any) {
-
+        
         if self.controlsContainerView.alpha == 0 {
             self.controlsContainerView.fadeInCompletionWithHandler({(complete) -> Void in
                 // replace with nstimer and use a hashmap for the timers - Alex 6-1-2019    q1d32
@@ -232,22 +253,34 @@ public class ProjectorView: UIView {
         
     }
     
+    // MARK: Player Control
+    public func playFromBeginning() {
+        self.player?.seek(to: CMTime.zero)
+        self.stateMachine.stateMachine.process(event: .playBackStarted, callback: { result in
+            switch result {
+            case .success:
+                self.playFromCurrentTime()
+            case .failure:
+                print("Error changing state from: \(self.stateMachine.stateMachine.currentState)")
+            }
+        })
+        
+    }
+
+    public func playFromCurrentTime() {
+        self.playPauseButton.setTitle("Pause", for: .normal)
+        self.player?.play()
+        self.controlsContainerView.fadeOut()
+    }
+
+
     
-    public func pause() {
+    private func pause() {
         guard self.stateMachine.stateMachine.currentState == .paused else {
             return
         }
         self.playPauseButton.setTitle("Play", for: .normal)
-        displayLink.isPaused = true
         self.player?.pause()
-    }
-    
-    public func loadURLAsset(_ videoURL:URL){
-        let asset = AVAsset(url: videoURL)
-        let playerItem = AVPlayerItem(asset: asset)
-        playerItem.add(playerItemVideoOutput)
-        self.player?.replaceCurrentItem(with: playerItem)
-        self.addTimeObserver()
     }
     
     private func playbackFinished(){
