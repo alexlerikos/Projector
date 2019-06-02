@@ -18,6 +18,7 @@
 		C5FC973E22A12356005F3B7D /* ProjectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5FC973D22A12356005F3B7D /* ProjectorView.xib */; };
 		C5FC97D522A20D5E005F3B7D /* AVPlayer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC97D422A20D5E005F3B7D /* AVPlayer+Extensions.swift */; };
 		C5FC97D722A241E0005F3B7D /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC97D622A241E0005F3B7D /* UIView+Extensions.swift */; };
+		C5FC97DB22A35176005F3B7D /* LoadingAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC97DA22A35176005F3B7D /* LoadingAnimationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		C5FC973D22A12356005F3B7D /* ProjectorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectorView.xib; sourceTree = "<group>"; };
 		C5FC97D422A20D5E005F3B7D /* AVPlayer+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVPlayer+Extensions.swift"; sourceTree = "<group>"; };
 		C5FC97D622A241E0005F3B7D /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		C5FC97DA22A35176005F3B7D /* LoadingAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingAnimationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				C50D7D9F22A04BEB00BAC840 /* Projector.h */,
 				C5FC96F622A0BD77005F3B7D /* ProjectorView.swift */,
 				C5FC973D22A12356005F3B7D /* ProjectorView.xib */,
+				C5FC97DC22A3518A005F3B7D /* Sub Views */,
 				C5FC973222A0C1C1005F3B7D /* Models */,
 				C5FC97D322A20B86005F3B7D /* Extensions */,
 				C5FC973722A10119005F3B7D /* Third Party */,
@@ -140,6 +143,14 @@
 				C5FC97D622A241E0005F3B7D /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C5FC97DC22A3518A005F3B7D /* Sub Views */ = {
+			isa = PBXGroup;
+			children = (
+				C5FC97DA22A35176005F3B7D /* LoadingAnimationView.swift */,
+			);
+			path = "Sub Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +269,7 @@
 				C5FC973B22A102C5005F3B7D /* Transition.swift in Sources */,
 				C5FC97D522A20D5E005F3B7D /* AVPlayer+Extensions.swift in Sources */,
 				C5FC973C22A102C5005F3B7D /* StateMachine.swift in Sources */,
+				C5FC97DB22A35176005F3B7D /* LoadingAnimationView.swift in Sources */,
 				C5FC96F722A0BD77005F3B7D /* ProjectorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
