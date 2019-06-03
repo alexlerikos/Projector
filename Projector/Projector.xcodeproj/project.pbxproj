@@ -19,6 +19,7 @@
 		C5FC97D522A20D5E005F3B7D /* AVPlayer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC97D422A20D5E005F3B7D /* AVPlayer+Extensions.swift */; };
 		C5FC97D722A241E0005F3B7D /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC97D622A241E0005F3B7D /* UIView+Extensions.swift */; };
 		C5FC97DB22A35176005F3B7D /* LoadingAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC97DA22A35176005F3B7D /* LoadingAnimationView.swift */; };
+		C5FC97E922A47404005F3B7D /* WaterMarkImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC97E822A47404005F3B7D /* WaterMarkImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		C5FC97D422A20D5E005F3B7D /* AVPlayer+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVPlayer+Extensions.swift"; sourceTree = "<group>"; };
 		C5FC97D622A241E0005F3B7D /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		C5FC97DA22A35176005F3B7D /* LoadingAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingAnimationView.swift; sourceTree = "<group>"; };
+		C5FC97E822A47404005F3B7D /* WaterMarkImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterMarkImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				C5FC97DA22A35176005F3B7D /* LoadingAnimationView.swift */,
+				C5FC97E822A47404005F3B7D /* WaterMarkImageView.swift */,
 			);
 			path = "Sub Views";
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				C5FC973B22A102C5005F3B7D /* Transition.swift in Sources */,
 				C5FC97D522A20D5E005F3B7D /* AVPlayer+Extensions.swift in Sources */,
 				C5FC973C22A102C5005F3B7D /* StateMachine.swift in Sources */,
+				C5FC97E922A47404005F3B7D /* WaterMarkImageView.swift in Sources */,
 				C5FC97DB22A35176005F3B7D /* LoadingAnimationView.swift in Sources */,
 				C5FC96F722A0BD77005F3B7D /* ProjectorView.swift in Sources */,
 			);
