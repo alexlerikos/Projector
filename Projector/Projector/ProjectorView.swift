@@ -54,13 +54,13 @@ public class ProjectorView: UIView {
     @IBOutlet weak var progressBarSlider: UISlider!
     @IBOutlet weak var playPauseButton: UIButton!
     @IBOutlet weak var controlsContainerView: UIView!
-    @IBOutlet var tapGestureRecognizer: UITapGestureRecognizer!
+    @IBOutlet var singleTapGestureRecognizer: UITapGestureRecognizer!
     @IBOutlet weak var waterMarkImageView: WaterMarkImageView!
+    @IBOutlet var doubleTapGestureRecognizer: UITapGestureRecognizer!
     
     //IB Constraints
     @IBOutlet weak var waterMarkImageViewWidth: NSLayoutConstraint!
     @IBOutlet weak var waterMarkImageViewHeight: NSLayoutConstraint!
-    
     
     
     // MARK: Initializers
@@ -91,6 +91,8 @@ public class ProjectorView: UIView {
         contentView.autoresizingMask = []
         contentView.translatesAutoresizingMaskIntoConstraints = true
 
+        
+        self.singleTapGestureRecognizer.require(toFail: self.doubleTapGestureRecognizer)
         
         stateMachine = PlaybackStateMachine(dispatchQueue: dispatchQueue)
         self.addTimeObserver()
@@ -173,6 +175,10 @@ public class ProjectorView: UIView {
         
         alpha != nil ? self.waterMarkImageView.setWaterMarkImage(image, alpha: alpha!) : self.waterMarkImageView.setWaterMarkImage(image)
     }
+    
+    public func setVideoGravity(_ videoGravity: AVLayerVideoGravity){
+        self.playerLayer.videoGravity = videoGravity
+    }
 
     // MARK: Time Observer
     private func addTimeObserver() {
@@ -249,8 +255,7 @@ public class ProjectorView: UIView {
         
     }
     
-    @IBAction func tapGestureAction(_ sender: Any) {
-        
+    @IBAction func singleTapGestureAction(_ sender: Any) {
         if self.controlsContainerView.alpha == 0 {
             self.controlsContainerView.fadeInCompletionWithHandler({(complete) -> Void in
                 // replace with nstimer and use a hashmap for the timers - Alex 6-1-2019    q1d32
@@ -264,8 +269,14 @@ public class ProjectorView: UIView {
         } else if self.controlsContainerView.alpha == 1 {
             self.controlsContainerView.fadeOut()
         }
-        
     }
+    
+    @IBAction func doubleTapGestureAction(_ sender: Any) {
+        if self.controlsContainerView.alpha == 0 {
+            self.playerLayer.videoGravity == .resizeAspect ? self.setVideoGravity(.resizeAspectFill) : self.setVideoGravity(.resizeAspect)
+        }
+    }
+    
     
     // MARK: Player Control
     public func playFromBeginning() {
