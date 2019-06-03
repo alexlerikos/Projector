@@ -20,6 +20,7 @@
 		C5FC97D722A241E0005F3B7D /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC97D622A241E0005F3B7D /* UIView+Extensions.swift */; };
 		C5FC97DB22A35176005F3B7D /* LoadingAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC97DA22A35176005F3B7D /* LoadingAnimationView.swift */; };
 		C5FC97E922A47404005F3B7D /* WaterMarkImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC97E822A47404005F3B7D /* WaterMarkImageView.swift */; };
+		C5FC97EB22A4D749005F3B7D /* ProgressSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC97EA22A4D749005F3B7D /* ProgressSliderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		C5FC97D622A241E0005F3B7D /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		C5FC97DA22A35176005F3B7D /* LoadingAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingAnimationView.swift; sourceTree = "<group>"; };
 		C5FC97E822A47404005F3B7D /* WaterMarkImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterMarkImageView.swift; sourceTree = "<group>"; };
+		C5FC97EA22A4D749005F3B7D /* ProgressSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressSliderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 			children = (
 				C5FC97DA22A35176005F3B7D /* LoadingAnimationView.swift */,
 				C5FC97E822A47404005F3B7D /* WaterMarkImageView.swift */,
+				C5FC97EA22A4D749005F3B7D /* ProgressSliderView.swift */,
 			);
 			path = "Sub Views";
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				C5FC973622A0D61B005F3B7D /* PlaybackState.swift in Sources */,
 				C5FC973422A0D1D8005F3B7D /* PlaybackStateMachine.swift in Sources */,
 				C5FC973B22A102C5005F3B7D /* Transition.swift in Sources */,
+				C5FC97EB22A4D749005F3B7D /* ProgressSliderView.swift in Sources */,
 				C5FC97D522A20D5E005F3B7D /* AVPlayer+Extensions.swift in Sources */,
 				C5FC973C22A102C5005F3B7D /* StateMachine.swift in Sources */,
 				C5FC97E922A47404005F3B7D /* WaterMarkImageView.swift in Sources */,
