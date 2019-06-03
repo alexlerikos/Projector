@@ -52,7 +52,7 @@ public class ProjectorView: UIView {
     private var loggingEnabled:Bool = false
    
     // IB Views
-    @IBOutlet weak var progressBarSlider: UISlider!
+    @IBOutlet weak var progressBarSlider: ProgressSliderView!
     @IBOutlet weak var playPauseButton: UIButton!
     @IBOutlet weak var controlsContainerView: UIView!
     @IBOutlet weak var waterMarkImageView: WaterMarkImageView!
@@ -188,7 +188,20 @@ public class ProjectorView: UIView {
     public func setLoggingEnabled(_ enabled:Bool){
         self.loggingEnabled = enabled
     }
-
+    
+    public func setProgressSliderThumbSelectedImage(_ image: UIImage){
+        self.progressBarSlider.setSliderThumbImagTouched(image)
+    }
+    
+    public func setProgressSliderThumbUnselectedImage(_ image: UIImage){
+        self.progressBarSlider.setSliderThumbImageUntouched(image)
+    }
+    
+    public func setProgressSliderTintColor(_ color: UIColor){
+        self.progressBarSlider.setTintColor(color)
+    }
+    
+    
     // MARK: Time Observer
     private func addTimeObserver() {
         let timeInterval = CMTimeMakeWithSeconds(0.1, preferredTimescale: 10)

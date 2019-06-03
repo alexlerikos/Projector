@@ -44,7 +44,7 @@
                                 <action selector="playPauseButtonPressed:" destination="-1" eventType="touchUpInside" id="0n2-D6-p9R"/>
                             </connections>
                         </button>
-                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Wxy-Yl-7Wt">
+                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Wxy-Yl-7Wt" customClass="ProgressSliderView" customModule="Projector" customModuleProvider="target">
                             <rect key="frame" x="28" y="337" width="611" height="31"/>
                             <connections>
                                 <action selector="sliderMovingAction:" destination="-1" eventType="valueChanged" id="rh5-Lj-qlW"/>
