@@ -55,6 +55,12 @@ public class ProjectorView: UIView {
     @IBOutlet weak var playPauseButton: UIButton!
     @IBOutlet weak var controlsContainerView: UIView!
     @IBOutlet var tapGestureRecognizer: UITapGestureRecognizer!
+    @IBOutlet weak var waterMarkImageView: WaterMarkImageView!
+    
+    //IB Constraints
+    @IBOutlet weak var waterMarkImageViewWidth: NSLayoutConstraint!
+    @IBOutlet weak var waterMarkImageViewHeight: NSLayoutConstraint!
+    
     
     
     // MARK: Initializers
@@ -158,6 +164,15 @@ public class ProjectorView: UIView {
         self.player?.replaceCurrentItem(with: playerItem)
         self.addTimeObserver()
     }
+    
+    public func setWaterMarkImage(_ image:UIImage, alpha:CGFloat? = nil){
+        
+        self.waterMarkImageViewWidth.constant = image.size.width
+        self.waterMarkImageViewHeight.constant = image.size.height
+        self.layoutSubviews()
+        
+        alpha != nil ? self.waterMarkImageView.setWaterMarkImage(image, alpha: alpha!) : self.waterMarkImageView.setWaterMarkImage(image)
+    }
 
     // MARK: Time Observer
     private func addTimeObserver() {
@@ -169,7 +184,6 @@ public class ProjectorView: UIView {
     }
 
     internal func handleTimeObserver(_ elapsedTime:CMTime) {
-
         guard let currentItem = self.player?.currentItem else {
             return
         }
