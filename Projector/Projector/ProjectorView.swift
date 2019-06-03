@@ -35,34 +35,37 @@ public class ProjectorView: UIView {
     private var playbackLikelyToKeepUpContext = 0
     private var asset: AVAsset!
     private var playerItem: AVPlayerItem?
-    @IBOutlet weak var loadingAnimationView: LoadingAnimationView!
+
     
     // KVO Context
     private var playerItemContext = 0
     
     // Properties
     private let nibName = "ProjectorView"
-    private var contentView: UIView!
-    private var stateMachine:PlaybackStateMachine!
-    
-    let requiredAssetKeys = [
+    private let requiredAssetKeys = [
         "playable",
         "hasProtectedContent"
     ]
+    
+    private var contentView: UIView!
+    private var stateMachine:PlaybackStateMachine!
+    private var loggingEnabled:Bool = false
    
-    // IB Properties
+    // IB Views
     @IBOutlet weak var progressBarSlider: UISlider!
     @IBOutlet weak var playPauseButton: UIButton!
     @IBOutlet weak var controlsContainerView: UIView!
-    @IBOutlet var singleTapGestureRecognizer: UITapGestureRecognizer!
     @IBOutlet weak var waterMarkImageView: WaterMarkImageView!
-    @IBOutlet var doubleTapGestureRecognizer: UITapGestureRecognizer!
+    @IBOutlet weak var loadingAnimationView: LoadingAnimationView!
     
     //IB Constraints
     @IBOutlet weak var waterMarkImageViewWidth: NSLayoutConstraint!
     @IBOutlet weak var waterMarkImageViewHeight: NSLayoutConstraint!
     
-    
+    //IB Gesture Recognizers
+    @IBOutlet var singleTapGestureRecognizer: UITapGestureRecognizer!
+    @IBOutlet var doubleTapGestureRecognizer: UITapGestureRecognizer!
+
     // MARK: Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -103,6 +106,8 @@ public class ProjectorView: UIView {
         self.controlsContainerView.backgroundColor = UIColor(white: 0.0, alpha: 0.5)
 
         self.player = AVPlayer()
+        
+        self.loggingEnabled = false
     }
     
     // MARK: Overrided Methods
@@ -179,6 +184,10 @@ public class ProjectorView: UIView {
     public func setVideoGravity(_ videoGravity: AVLayerVideoGravity){
         self.playerLayer.videoGravity = videoGravity
     }
+    
+    public func setLoggingEnabled(_ enabled:Bool){
+        self.loggingEnabled = enabled
+    }
 
     // MARK: Time Observer
     private func addTimeObserver() {
@@ -209,7 +218,7 @@ public class ProjectorView: UIView {
     
     // MARK: IBA Actions
     @IBAction func playPauseButtonPressed(_ sender: Any) {
-        print("currennt state \(self.stateMachine.stateMachine.currentState)")
+        self.printMessage("currennt state \(self.stateMachine.stateMachine.currentState)")
         self.stateMachine.stateMachine.process(event: .playPauseTriggered, callback: { result in
             switch result {
             case .success:
@@ -221,7 +230,7 @@ public class ProjectorView: UIView {
                     self.playFromBeginning()
                 }
             case .failure:
-                print("Error changing state from: \(self.stateMachine.stateMachine.currentState)")
+                self.printMessage("Error changing state from: \(self.stateMachine.stateMachine.currentState)")
             }
         })
     }
@@ -286,7 +295,7 @@ public class ProjectorView: UIView {
             case .success:
                 self.playFromCurrentTime()
             case .failure:
-                print("Error changing state from: \(self.stateMachine.stateMachine.currentState)")
+                self.printMessage("Error changing state from: \(self.stateMachine.stateMachine.currentState)")
             }
         })
         
@@ -312,13 +321,20 @@ public class ProjectorView: UIView {
         self.stateMachine.stateMachine.process(event: .playbackFinished, callback: { result in
             switch result {
             case .success:
-                print("success current state: \(self.stateMachine.stateMachine.currentState)")
+                self.printMessage("success current state: \(self.stateMachine.stateMachine.currentState)")
                 self.playPauseButton.setTitle("Restart", for: .normal)
                 self.controlsContainerView.fadeIn()
             case .failure:
-                print("Error changing state from: \(self.stateMachine.stateMachine.currentState)")
+                self.printMessage("Error changing state from: \(self.stateMachine.stateMachine.currentState)")
             }
         })
+    }
+    
+    private func printMessage(_ message:String){
+        guard loggingEnabled else {
+            return
+        }
+        print(message)
     }
 
 

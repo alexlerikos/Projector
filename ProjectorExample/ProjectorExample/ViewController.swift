@@ -23,6 +23,7 @@ class ViewController: UIViewController {
         let videoURL = URL(fileURLWithPath: Bundle.main.path(forResource: kVideoName, ofType: kVideoType)!)
 //        let videoURL = URL(string: "https://devstreaming-cdn.apple.com/videos/streaming/examples/bipbop_16x9/bipbop_16x9_variant.m3u8")!
         self.projectorView.setWaterMarkImage(UIImage(named: "water-mark")!)
+        self.projectorView.setLoggingEnabled(true)
         self.projectorView.loadURLAsset(videoURL)
     }
 
