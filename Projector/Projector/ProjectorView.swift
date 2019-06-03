@@ -53,7 +53,7 @@ public class ProjectorView: UIView {
    
     // IB Views
     @IBOutlet weak var progressBarSlider: ProgressSliderView!
-    @IBOutlet weak var playPauseButton: UIButton!
+    @IBOutlet weak var playPauseButton: PlayPauseRestartButton!
     @IBOutlet weak var controlsContainerView: UIView!
     @IBOutlet weak var waterMarkImageView: WaterMarkImageView!
     @IBOutlet weak var loadingAnimationView: LoadingAnimationView!
@@ -101,7 +101,6 @@ public class ProjectorView: UIView {
         self.addTimeObserver()
         
         // delete this later, just for skeleton implementation
-        self.playPauseButton.setTitle("Play", for: .normal)
         self.progressBarSlider.setValue(0.0, animated: false)
         self.controlsContainerView.backgroundColor = UIColor(white: 0.0, alpha: 0.5)
 
@@ -187,6 +186,7 @@ public class ProjectorView: UIView {
     
     public func setLoggingEnabled(_ enabled:Bool){
         self.loggingEnabled = enabled
+        self.playPauseButton.debugOn = enabled
     }
     
     public func setProgressSliderThumbSelectedImage(_ image: UIImage){
@@ -315,7 +315,7 @@ public class ProjectorView: UIView {
     }
 
     public func playFromCurrentTime() {
-        self.playPauseButton.setTitle("Pause", for: .normal)
+        self.playPauseButton.buttonStateEvent(.playEvent)
         self.player?.play()
         self.controlsContainerView.fadeOut()
     }
@@ -326,7 +326,7 @@ public class ProjectorView: UIView {
         guard self.stateMachine.stateMachine.currentState == .paused else {
             return
         }
-        self.playPauseButton.setTitle("Play", for: .normal)
+        self.playPauseButton.buttonStateEvent(.pauseEvent)
         self.player?.pause()
     }
     
@@ -335,7 +335,7 @@ public class ProjectorView: UIView {
             switch result {
             case .success:
                 self.printMessage("success current state: \(self.stateMachine.stateMachine.currentState)")
-                self.playPauseButton.setTitle("Restart", for: .normal)
+                self.playPauseButton.buttonStateEvent(.finishedEvent)
                 self.controlsContainerView.fadeIn()
             case .failure:
                 self.printMessage("Error changing state from: \(self.stateMachine.stateMachine.currentState)")
