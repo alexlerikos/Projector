@@ -37,9 +37,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PwO-Vl-YRy">
                     <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qpV-pY-7hO">
-                            <rect key="frame" x="310.5" y="172.5" width="46" height="30"/>
-                            <state key="normal" title="Button"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qpV-pY-7hO" customClass="PlayPauseRestartButton" customModule="Projector" customModuleProvider="target">
+                            <rect key="frame" x="318.5" y="172.5" width="30" height="30"/>
                             <connections>
                                 <action selector="playPauseButtonPressed:" destination="-1" eventType="touchUpInside" id="0n2-D6-p9R"/>
                             </connections>

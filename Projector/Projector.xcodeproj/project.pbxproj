@@ -21,6 +21,11 @@
 		C5FC97DB22A35176005F3B7D /* LoadingAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC97DA22A35176005F3B7D /* LoadingAnimationView.swift */; };
 		C5FC97E922A47404005F3B7D /* WaterMarkImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC97E822A47404005F3B7D /* WaterMarkImageView.swift */; };
 		C5FC97EB22A4D749005F3B7D /* ProgressSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC97EA22A4D749005F3B7D /* ProgressSliderView.swift */; };
+		C5FC97ED22A4EA30005F3B7D /* PlayPauseRestartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC97EC22A4EA30005F3B7D /* PlayPauseRestartButton.swift */; };
+		C5FC97F022A4F327005F3B7D /* PlaybackButtonState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC97EF22A4F327005F3B7D /* PlaybackButtonState.swift */; };
+		C5FC97F222A5016F005F3B7D /* PlaybackButtonStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC97F122A5016F005F3B7D /* PlaybackButtonStateMachine.swift */; };
+		C5FC97F422A501D6005F3B7D /* StateMachineDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC97F322A501D6005F3B7D /* StateMachineDelegate.swift */; };
+		C5FC97FB22A57C9B005F3B7D /* ProjectorAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5FC97FA22A57C9B005F3B7D /* ProjectorAssets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +56,11 @@
 		C5FC97DA22A35176005F3B7D /* LoadingAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingAnimationView.swift; sourceTree = "<group>"; };
 		C5FC97E822A47404005F3B7D /* WaterMarkImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterMarkImageView.swift; sourceTree = "<group>"; };
 		C5FC97EA22A4D749005F3B7D /* ProgressSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressSliderView.swift; sourceTree = "<group>"; };
+		C5FC97EC22A4EA30005F3B7D /* PlayPauseRestartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayPauseRestartButton.swift; sourceTree = "<group>"; };
+		C5FC97EF22A4F327005F3B7D /* PlaybackButtonState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackButtonState.swift; sourceTree = "<group>"; };
+		C5FC97F122A5016F005F3B7D /* PlaybackButtonStateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackButtonStateMachine.swift; sourceTree = "<group>"; };
+		C5FC97F322A501D6005F3B7D /* StateMachineDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateMachineDelegate.swift; sourceTree = "<group>"; };
+		C5FC97FA22A57C9B005F3B7D /* ProjectorAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ProjectorAssets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +110,7 @@
 				C5FC973222A0C1C1005F3B7D /* Models */,
 				C5FC97D322A20B86005F3B7D /* Extensions */,
 				C5FC973722A10119005F3B7D /* Third Party */,
+				C5FC97F922A57C77005F3B7D /* Resources */,
 				C50D7DA022A04BEB00BAC840 /* Info.plist */,
 			);
 			path = Projector;
@@ -117,8 +128,9 @@
 		C5FC973222A0C1C1005F3B7D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C5FC973322A0D1D8005F3B7D /* PlaybackStateMachine.swift */,
-				C5FC973522A0D61B005F3B7D /* PlaybackState.swift */,
+				C5FC97F322A501D6005F3B7D /* StateMachineDelegate.swift */,
+				C5FC97F522A505C0005F3B7D /* Playback Button */,
+				C5FC97EE22A4EA3F005F3B7D /* Playback */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -155,8 +167,35 @@
 				C5FC97DA22A35176005F3B7D /* LoadingAnimationView.swift */,
 				C5FC97E822A47404005F3B7D /* WaterMarkImageView.swift */,
 				C5FC97EA22A4D749005F3B7D /* ProgressSliderView.swift */,
+				C5FC97EC22A4EA30005F3B7D /* PlayPauseRestartButton.swift */,
 			);
 			path = "Sub Views";
+			sourceTree = "<group>";
+		};
+		C5FC97EE22A4EA3F005F3B7D /* Playback */ = {
+			isa = PBXGroup;
+			children = (
+				C5FC973522A0D61B005F3B7D /* PlaybackState.swift */,
+				C5FC973322A0D1D8005F3B7D /* PlaybackStateMachine.swift */,
+			);
+			path = Playback;
+			sourceTree = "<group>";
+		};
+		C5FC97F522A505C0005F3B7D /* Playback Button */ = {
+			isa = PBXGroup;
+			children = (
+				C5FC97EF22A4F327005F3B7D /* PlaybackButtonState.swift */,
+				C5FC97F122A5016F005F3B7D /* PlaybackButtonStateMachine.swift */,
+			);
+			path = "Playback Button";
+			sourceTree = "<group>";
+		};
+		C5FC97F922A57C77005F3B7D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C5FC97FA22A57C9B005F3B7D /* ProjectorAssets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5FC973E22A12356005F3B7D /* ProjectorView.xib in Resources */,
+				C5FC97FB22A57C9B005F3B7D /* ProjectorAssets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,13 +309,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5FC97F022A4F327005F3B7D /* PlaybackButtonState.swift in Sources */,
 				C5FC97D722A241E0005F3B7D /* UIView+Extensions.swift in Sources */,
 				C5FC973622A0D61B005F3B7D /* PlaybackState.swift in Sources */,
 				C5FC973422A0D1D8005F3B7D /* PlaybackStateMachine.swift in Sources */,
 				C5FC973B22A102C5005F3B7D /* Transition.swift in Sources */,
 				C5FC97EB22A4D749005F3B7D /* ProgressSliderView.swift in Sources */,
+				C5FC97ED22A4EA30005F3B7D /* PlayPauseRestartButton.swift in Sources */,
 				C5FC97D522A20D5E005F3B7D /* AVPlayer+Extensions.swift in Sources */,
+				C5FC97F222A5016F005F3B7D /* PlaybackButtonStateMachine.swift in Sources */,
 				C5FC973C22A102C5005F3B7D /* StateMachine.swift in Sources */,
+				C5FC97F422A501D6005F3B7D /* StateMachineDelegate.swift in Sources */,
 				C5FC97E922A47404005F3B7D /* WaterMarkImageView.swift in Sources */,
 				C5FC97DB22A35176005F3B7D /* LoadingAnimationView.swift in Sources */,
 				C5FC96F722A0BD77005F3B7D /* ProjectorView.swift in Sources */,
@@ -434,6 +478,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				INFOPLIST_FILE = Projector/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -461,6 +506,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				INFOPLIST_FILE = Projector/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (

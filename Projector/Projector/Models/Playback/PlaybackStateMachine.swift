@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PlaybackStateMachine: NSObject {
+class PlaybackStateMachine: NSObject, StateMachineDelegate {
     let dispatchQueue: DispatchQueue
     let stateMachine: StateMachine<PlaybackState, PlaybackEvent>
     
@@ -27,7 +27,7 @@ class PlaybackStateMachine: NSObject {
         return getTransitions()
     }
     
-    private func initializeTransitions() {
+    internal func initializeTransitions() {
         let transitions = self.getTransitions()
         for t in transitions {
             self.stateMachine.add(transition: t)
