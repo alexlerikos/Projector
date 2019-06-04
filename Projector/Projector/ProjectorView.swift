@@ -201,6 +201,21 @@ public class ProjectorView: UIView {
         self.progressBarSlider.setTintColor(color)
     }
     
+    public func setControlsButtonImageForPlaying(_ image:UIImage){
+        self.playPauseButton.setButtonStateImage(buttonState: .playing, image: image)
+    }
+    
+    public func setControlsButtonImageForPaused(_ image:UIImage){
+        self.playPauseButton.setButtonStateImage(buttonState: .paused, image: image)
+    }
+    
+    public func setControlsButtonImageForRestart(_ image:UIImage){
+        self.playPauseButton.setButtonStateImage(buttonState: .restart, image: image)
+    }
+    
+    public func setControlsButtonTint(_ color:UIColor){
+        self.playPauseButton.tintColor = color
+    }
     
     // MARK: Time Observer
     private func addTimeObserver() {
@@ -272,6 +287,7 @@ public class ProjectorView: UIView {
         if slider.value == 1.0 {
             self.playbackFinished()
         } else {
+            self.fadeOutTimerTask()
             self.controlsContainerView.fadeOutWithDelay(1.0)
         }
         
@@ -320,8 +336,6 @@ public class ProjectorView: UIView {
         self.controlsContainerView.fadeOut()
     }
 
-
-    
     private func pause() {
         guard self.stateMachine.stateMachine.currentState == .paused else {
             return
@@ -341,6 +355,14 @@ public class ProjectorView: UIView {
                 self.printMessage("Error changing state from: \(self.stateMachine.stateMachine.currentState)")
             }
         })
+    }
+    
+    private func fadeOutTimerTask(){
+        
+    }
+    
+    private func fadeInTimerTask() {
+        
     }
     
     private func printMessage(_ message:String){
