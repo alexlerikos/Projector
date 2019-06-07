@@ -11,6 +11,10 @@ import AVKit
 import AVFoundation
 
 public class ProjectorView: UIView {
+    
+    /// **Void Block TypeAlias**
+    typealias GCDTimerBlock =  (() -> Void)
+    
     // Public - AVPlayer Attributes
     var player: AVPlayer? {
         get {
@@ -26,6 +30,8 @@ public class ProjectorView: UIView {
         return layer as! AVPlayerLayer
     }
     
+    
+    //Overrides
     override public class var layerClass: AnyClass {
         get {
             return AVPlayerLayer.self
@@ -36,21 +42,20 @@ public class ProjectorView: UIView {
     private var asset: AVAsset!
     private var playerItem: AVPlayerItem?
 
-    
     // KVO Context
     private var playerItemContext = 0
     
     // Properties
     private let nibName = "ProjectorView"
-    private let requiredAssetKeys = [
-        "playable",
-        "hasProtectedContent"
-    ]
+    private let requiredAssetKeys = ["playable", "hasProtectedContent"]
+    private let gcdTimerQueue: DispatchQueue = DispatchQueue(label: "GCDTimerQueue")
     
     private var contentView: UIView!
     private var stateMachine:PlaybackStateMachine!
     private var loggingEnabled:Bool = false
-   
+    private var gcdTimer:DispatchSourceTimer?
+    
+    
     // IB Views
     @IBOutlet weak var progressBarSlider: ProgressSliderView!
     @IBOutlet weak var playPauseButton: PlayPauseRestartButton!
@@ -107,6 +112,7 @@ public class ProjectorView: UIView {
         self.player = AVPlayer()
         
         self.loggingEnabled = false
+
     }
     
     // MARK: Overrided Methods
@@ -278,6 +284,7 @@ public class ProjectorView: UIView {
     }
     
     @IBAction func sliderStartedMoving(_ sender: Any) {
+        self.cancelControlsTimer()
         self.pause()
     }
     
@@ -287,8 +294,8 @@ public class ProjectorView: UIView {
         if slider.value == 1.0 {
             self.playbackFinished()
         } else {
-            self.fadeOutTimerTask()
-            self.controlsContainerView.fadeOutWithDelay(1.0)
+
+            self.startControlsTimer(1)
         }
         
     }
@@ -296,13 +303,7 @@ public class ProjectorView: UIView {
     @IBAction func singleTapGestureAction(_ sender: Any) {
         if self.controlsContainerView.alpha == 0 {
             self.controlsContainerView.fadeInCompletionWithHandler({(complete) -> Void in
-                // replace with nstimer and use a hashmap for the timers - Alex 6-1-2019    q1d32
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {() -> Void in
-                    guard !self.progressBarSlider.isTouchInside else {
-                        return
-                    }
-                    self.controlsContainerView.fadeOut()
-                })
+                self.startControlsTimer()
             })
         } else if self.controlsContainerView.alpha == 1 {
             self.controlsContainerView.fadeOut()
@@ -364,7 +365,12 @@ public class ProjectorView: UIView {
     private func fadeInTimerTask() {
         
     }
-    
+    /**
+     # PrintMessage
+     Only prints if *loggingEnabled* property is true
+
+     - Parameter message: Messge to be printed
+    */
     private func printMessage(_ message:String){
         guard loggingEnabled else {
             return
@@ -372,5 +378,37 @@ public class ProjectorView: UIView {
         print(message)
     }
 
-
+    /**
+     # startControlsTimer
+     3 second timer that resets at each touch
+    */
+    
+    internal func startControlsTimer(_ delay: Int = 3){
+        self.scheduledTimerWithTimeInterval(interval: delay, executionBlock:{() -> Void in
+            DispatchQueue.main.async {
+                self.controlsContainerView.fadeOut()
+            }
+        }, repeats: false)
+    }
+    
+    internal func cancelControlsTimer(){
+        self.gcdTimer?.cancel()
+        self.gcdTimer = nil
+    }
+    
+    
+    // based on http://www.acttos.org/2016/08/NSTimer-and-GCD-Timer-in-iOS/
+    internal func scheduledTimerWithTimeInterval(interval: Int, executionBlock:@escaping GCDTimerBlock, repeats: Bool) -> Void {
+        if (self.gcdTimer != nil) {
+            self.gcdTimer!.cancel();
+        }
+        self.gcdTimer = DispatchSource.makeTimerSource(flags: [], queue: self.gcdTimerQueue)
+        
+        self.gcdTimer?.schedule(deadline: DispatchTime.now() + DispatchTimeInterval.seconds(interval))
+        
+        self.gcdTimer?.setEventHandler(handler: DispatchWorkItem(block: executionBlock))
+        
+        self.printMessage("Controls visibility GCD timer will resume");
+        gcdTimer!.resume();
+    }
 }
