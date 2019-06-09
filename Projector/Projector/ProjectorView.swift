@@ -186,8 +186,6 @@ public class ProjectorView: UIView {
                 self.playbackFinished()
             }
         }
-        
-
     }
     
     // MARK: IBA Actions
@@ -234,10 +232,8 @@ public class ProjectorView: UIView {
         if slider.value == 1.0 {
             self.playbackFinished()
         } else {
-
             self.startControlsTimer(1)
         }
-        
     }
     
     @IBAction func singleTapGestureAction(_ sender: Any) {
