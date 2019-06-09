@@ -43,19 +43,18 @@ public class ProjectorView: UIView {
     private var playerItem: AVPlayerItem?
 
     // KVO Context
-    private var playerItemContext = 0
+    internal var playerItemContext = 0
     
     // Properties
     private let nibName = "ProjectorView"
-    private let requiredAssetKeys = ["playable", "hasProtectedContent"]
+    internal let requiredAssetKeys = ["playable", "hasProtectedContent"]
     private let gcdTimerQueue: DispatchQueue = DispatchQueue(label: "GCDTimerQueue")
     
-    private var contentView: UIView!
+    internal var contentView: UIView!
     private var stateMachine:PlaybackStateMachine!
-    private var loggingEnabled:Bool = false
+    internal var loggingEnabled:Bool = false
     private var gcdTimer:DispatchSourceTimer?
-    
-    
+
     // IB Views
     @IBOutlet weak var progressBarSlider: ProgressSliderView!
     @IBOutlet weak var playPauseButton: PlayPauseRestartButton!
@@ -164,67 +163,8 @@ public class ProjectorView: UIView {
         
     }
     
-    // MARK: Public API
-    public func loadURLAsset(_ videoURL:URL){
-        let asset = AVAsset(url: videoURL)
-        let playerItem = AVPlayerItem(asset: asset, automaticallyLoadedAssetKeys: requiredAssetKeys)
-        
-        playerItem.addObserver(self, forKeyPath: #keyPath(AVPlayerItem.isPlaybackBufferFull), options: [.new], context: &playerItemContext)
-        playerItem.addObserver(self, forKeyPath: #keyPath(AVPlayerItem.isPlaybackLikelyToKeepUp), options: [.new], context: &playerItemContext)
-        playerItem.addObserver(self, forKeyPath: #keyPath(AVPlayerItem.isPlaybackBufferEmpty), options: [.new], context: &playerItemContext)
-        
-        self.player?.replaceCurrentItem(with: playerItem)
-        self.addTimeObserver()
-    }
-    
-    public func setWaterMarkImage(_ image:UIImage, alpha:CGFloat? = nil){
-        
-        self.waterMarkImageViewWidth.constant = image.size.width
-        self.waterMarkImageViewHeight.constant = image.size.height
-        self.layoutSubviews()
-        
-        alpha != nil ? self.waterMarkImageView.setWaterMarkImage(image, alpha: alpha!) : self.waterMarkImageView.setWaterMarkImage(image)
-    }
-    
-    public func setVideoGravity(_ videoGravity: AVLayerVideoGravity){
-        self.playerLayer.videoGravity = videoGravity
-    }
-    
-    public func setLoggingEnabled(_ enabled:Bool){
-        self.loggingEnabled = enabled
-        self.playPauseButton.debugOn = enabled
-    }
-    
-    public func setProgressSliderThumbSelectedImage(_ image: UIImage){
-        self.progressBarSlider.setSliderThumbImagTouched(image)
-    }
-    
-    public func setProgressSliderThumbUnselectedImage(_ image: UIImage){
-        self.progressBarSlider.setSliderThumbImageUntouched(image)
-    }
-    
-    public func setProgressSliderTintColor(_ color: UIColor){
-        self.progressBarSlider.setTintColor(color)
-    }
-    
-    public func setControlsButtonImageForPlaying(_ image:UIImage){
-        self.playPauseButton.setButtonStateImage(buttonState: .playing, image: image)
-    }
-    
-    public func setControlsButtonImageForPaused(_ image:UIImage){
-        self.playPauseButton.setButtonStateImage(buttonState: .paused, image: image)
-    }
-    
-    public func setControlsButtonImageForRestart(_ image:UIImage){
-        self.playPauseButton.setButtonStateImage(buttonState: .restart, image: image)
-    }
-    
-    public func setControlsButtonTint(_ color:UIColor){
-        self.playPauseButton.tintColor = color
-    }
-    
     // MARK: Time Observer
-    private func addTimeObserver() {
+    internal func addTimeObserver() {
         let timeInterval = CMTimeMakeWithSeconds(0.1, preferredTimescale: 10)
         self.player?.addPeriodicTimeObserver(forInterval: timeInterval, queue: DispatchQueue.main, using: {(elapsedTime: CMTime ) -> Void in
                 self.handleTimeObserver(elapsedTime)

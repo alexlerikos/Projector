@@ -27,6 +27,7 @@ class ViewController: UIViewController {
         self.projectorView.setWaterMarkImage(UIImage(named: "water-mark")!)
         self.projectorView.setLoggingEnabled(true)
         self.projectorView.setProgressSliderTintColor(sliderColor)
+        self.projectorView.setControlsButtonTint(sliderColor)
         self.projectorView.loadURLAsset(videoURL)
     }
 
