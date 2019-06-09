@@ -43,19 +43,18 @@ public class ProjectorView: UIView {
     private var playerItem: AVPlayerItem?
 
     // KVO Context
-    private var playerItemContext = 0
+    internal var playerItemContext = 0
     
     // Properties
     private let nibName = "ProjectorView"
-    private let requiredAssetKeys = ["playable", "hasProtectedContent"]
-    private let gcdTimerQueue: DispatchQueue = DispatchQueue(label: "GCDTimerQueue")
+    internal let requiredAssetKeys = ["playable", "hasProtectedContent"]
+    internal let gcdTimerQueue: DispatchQueue = DispatchQueue(label: "GCDTimerQueue")
     
-    private var contentView: UIView!
-    private var stateMachine:PlaybackStateMachine!
-    private var loggingEnabled:Bool = false
-    private var gcdTimer:DispatchSourceTimer?
-    
-    
+    internal var contentView: UIView!
+    internal var stateMachine:PlaybackStateMachine!
+    internal var loggingEnabled:Bool = false
+    internal var gcdTimer:DispatchSourceTimer?
+
     // IB Views
     @IBOutlet weak var progressBarSlider: ProgressSliderView!
     @IBOutlet weak var playPauseButton: PlayPauseRestartButton!
@@ -164,67 +163,8 @@ public class ProjectorView: UIView {
         
     }
     
-    // MARK: Public API
-    public func loadURLAsset(_ videoURL:URL){
-        let asset = AVAsset(url: videoURL)
-        let playerItem = AVPlayerItem(asset: asset, automaticallyLoadedAssetKeys: requiredAssetKeys)
-        
-        playerItem.addObserver(self, forKeyPath: #keyPath(AVPlayerItem.isPlaybackBufferFull), options: [.new], context: &playerItemContext)
-        playerItem.addObserver(self, forKeyPath: #keyPath(AVPlayerItem.isPlaybackLikelyToKeepUp), options: [.new], context: &playerItemContext)
-        playerItem.addObserver(self, forKeyPath: #keyPath(AVPlayerItem.isPlaybackBufferEmpty), options: [.new], context: &playerItemContext)
-        
-        self.player?.replaceCurrentItem(with: playerItem)
-        self.addTimeObserver()
-    }
-    
-    public func setWaterMarkImage(_ image:UIImage, alpha:CGFloat? = nil){
-        
-        self.waterMarkImageViewWidth.constant = image.size.width
-        self.waterMarkImageViewHeight.constant = image.size.height
-        self.layoutSubviews()
-        
-        alpha != nil ? self.waterMarkImageView.setWaterMarkImage(image, alpha: alpha!) : self.waterMarkImageView.setWaterMarkImage(image)
-    }
-    
-    public func setVideoGravity(_ videoGravity: AVLayerVideoGravity){
-        self.playerLayer.videoGravity = videoGravity
-    }
-    
-    public func setLoggingEnabled(_ enabled:Bool){
-        self.loggingEnabled = enabled
-        self.playPauseButton.debugOn = enabled
-    }
-    
-    public func setProgressSliderThumbSelectedImage(_ image: UIImage){
-        self.progressBarSlider.setSliderThumbImagTouched(image)
-    }
-    
-    public func setProgressSliderThumbUnselectedImage(_ image: UIImage){
-        self.progressBarSlider.setSliderThumbImageUntouched(image)
-    }
-    
-    public func setProgressSliderTintColor(_ color: UIColor){
-        self.progressBarSlider.setTintColor(color)
-    }
-    
-    public func setControlsButtonImageForPlaying(_ image:UIImage){
-        self.playPauseButton.setButtonStateImage(buttonState: .playing, image: image)
-    }
-    
-    public func setControlsButtonImageForPaused(_ image:UIImage){
-        self.playPauseButton.setButtonStateImage(buttonState: .paused, image: image)
-    }
-    
-    public func setControlsButtonImageForRestart(_ image:UIImage){
-        self.playPauseButton.setButtonStateImage(buttonState: .restart, image: image)
-    }
-    
-    public func setControlsButtonTint(_ color:UIColor){
-        self.playPauseButton.tintColor = color
-    }
-    
     // MARK: Time Observer
-    private func addTimeObserver() {
+    internal func addTimeObserver() {
         let timeInterval = CMTimeMakeWithSeconds(0.1, preferredTimescale: 10)
         self.player?.addPeriodicTimeObserver(forInterval: timeInterval, queue: DispatchQueue.main, using: {(elapsedTime: CMTime ) -> Void in
                 self.handleTimeObserver(elapsedTime)
@@ -246,8 +186,6 @@ public class ProjectorView: UIView {
                 self.playbackFinished()
             }
         }
-        
-
     }
     
     // MARK: IBA Actions
@@ -294,10 +232,8 @@ public class ProjectorView: UIView {
         if slider.value == 1.0 {
             self.playbackFinished()
         } else {
-
             self.startControlsTimer(1)
         }
-        
     }
     
     @IBAction func singleTapGestureAction(_ sender: Any) {
@@ -316,99 +252,18 @@ public class ProjectorView: UIView {
         }
     }
     
-    
-    // MARK: Player Control
-    public func playFromBeginning() {
-        self.player?.seek(to: CMTime.zero)
-        self.stateMachine.stateMachine.process(event: .playBackStarted, callback: { result in
-            switch result {
-            case .success:
-                self.playFromCurrentTime()
-            case .failure:
-                self.printMessage("Error changing state from: \(self.stateMachine.stateMachine.currentState)")
-            }
-        })
-        
-    }
-
-    public func playFromCurrentTime() {
-        self.playPauseButton.buttonStateEvent(.playEvent)
-        self.player?.play()
-        self.controlsContainerView.fadeOut()
-    }
-
-    private func pause() {
-        guard self.stateMachine.stateMachine.currentState == .paused else {
-            return
-        }
-        self.playPauseButton.buttonStateEvent(.pauseEvent)
-        self.player?.pause()
-    }
-    
-    private func playbackFinished(){
-        self.stateMachine.stateMachine.process(event: .playbackFinished, callback: { result in
-            switch result {
-            case .success:
-                self.printMessage("success current state: \(self.stateMachine.stateMachine.currentState)")
-                self.playPauseButton.buttonStateEvent(.finishedEvent)
-                self.controlsContainerView.fadeIn()
-            case .failure:
-                self.printMessage("Error changing state from: \(self.stateMachine.stateMachine.currentState)")
-            }
-        })
-    }
-    
-    private func fadeOutTimerTask(){
-        
-    }
-    
-    private func fadeInTimerTask() {
-        
-    }
     /**
      # PrintMessage
      Only prints if *loggingEnabled* property is true
 
      - Parameter message: Messge to be printed
     */
-    private func printMessage(_ message:String){
+    internal func printMessage(_ message:String){
         guard loggingEnabled else {
             return
         }
         print(message)
     }
 
-    /**
-     # startControlsTimer
-     3 second timer that resets at each touch
-    */
-    
-    internal func startControlsTimer(_ delay: Int = 3){
-        self.scheduledTimerWithTimeInterval(interval: delay, executionBlock:{() -> Void in
-            DispatchQueue.main.async {
-                self.controlsContainerView.fadeOut()
-            }
-        }, repeats: false)
-    }
-    
-    internal func cancelControlsTimer(){
-        self.gcdTimer?.cancel()
-        self.gcdTimer = nil
-    }
-    
-    
-    // based on http://www.acttos.org/2016/08/NSTimer-and-GCD-Timer-in-iOS/
-    internal func scheduledTimerWithTimeInterval(interval: Int, executionBlock:@escaping GCDTimerBlock, repeats: Bool) -> Void {
-        if (self.gcdTimer != nil) {
-            self.gcdTimer!.cancel();
-        }
-        self.gcdTimer = DispatchSource.makeTimerSource(flags: [], queue: self.gcdTimerQueue)
-        
-        self.gcdTimer?.schedule(deadline: DispatchTime.now() + DispatchTimeInterval.seconds(interval))
-        
-        self.gcdTimer?.setEventHandler(handler: DispatchWorkItem(block: executionBlock))
-        
-        self.printMessage("Controls visibility GCD timer will resume");
-        gcdTimer!.resume();
-    }
+
 }
