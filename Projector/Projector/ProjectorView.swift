@@ -51,7 +51,7 @@ public class ProjectorView: UIView {
     private let gcdTimerQueue: DispatchQueue = DispatchQueue(label: "GCDTimerQueue")
     
     internal var contentView: UIView!
-    private var stateMachine:PlaybackStateMachine!
+    internal var stateMachine:PlaybackStateMachine!
     internal var loggingEnabled:Bool = false
     private var gcdTimer:DispatchSourceTimer?
 
@@ -256,62 +256,13 @@ public class ProjectorView: UIView {
         }
     }
     
-    
-    // MARK: Player Control
-    public func playFromBeginning() {
-        self.player?.seek(to: CMTime.zero)
-        self.stateMachine.stateMachine.process(event: .playBackStarted, callback: { result in
-            switch result {
-            case .success:
-                self.playFromCurrentTime()
-            case .failure:
-                self.printMessage("Error changing state from: \(self.stateMachine.stateMachine.currentState)")
-            }
-        })
-        
-    }
-
-    public func playFromCurrentTime() {
-        self.playPauseButton.buttonStateEvent(.playEvent)
-        self.player?.play()
-        self.controlsContainerView.fadeOut()
-    }
-
-    private func pause() {
-        guard self.stateMachine.stateMachine.currentState == .paused else {
-            return
-        }
-        self.playPauseButton.buttonStateEvent(.pauseEvent)
-        self.player?.pause()
-    }
-    
-    private func playbackFinished(){
-        self.stateMachine.stateMachine.process(event: .playbackFinished, callback: { result in
-            switch result {
-            case .success:
-                self.printMessage("success current state: \(self.stateMachine.stateMachine.currentState)")
-                self.playPauseButton.buttonStateEvent(.finishedEvent)
-                self.controlsContainerView.fadeIn()
-            case .failure:
-                self.printMessage("Error changing state from: \(self.stateMachine.stateMachine.currentState)")
-            }
-        })
-    }
-    
-    private func fadeOutTimerTask(){
-        
-    }
-    
-    private func fadeInTimerTask() {
-        
-    }
     /**
      # PrintMessage
      Only prints if *loggingEnabled* property is true
 
      - Parameter message: Messge to be printed
     */
-    private func printMessage(_ message:String){
+    internal func printMessage(_ message:String){
         guard loggingEnabled else {
             return
         }
