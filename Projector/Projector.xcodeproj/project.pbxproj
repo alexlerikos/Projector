@@ -12,6 +12,7 @@
 		C50D7DAD22A04BEB00BAC840 /* Projector.h in Headers */ = {isa = PBXBuildFile; fileRef = C50D7D9F22A04BEB00BAC840 /* Projector.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C5BDF5E722ADBA4D00933882 /* ProjectorView+Public_API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BDF5E622ADBA4D00933882 /* ProjectorView+Public_API.swift */; };
 		C5BDF5E922ADBC8E00933882 /* ProjectorView+PlayerControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BDF5E822ADBC8E00933882 /* ProjectorView+PlayerControls.swift */; };
+		C5BDF5EB22ADBEEB00933882 /* ProjectorView+TimerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BDF5EA22ADBEEB00933882 /* ProjectorView+TimerAPI.swift */; };
 		C5FC96F722A0BD77005F3B7D /* ProjectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC96F622A0BD77005F3B7D /* ProjectorView.swift */; };
 		C5FC973422A0D1D8005F3B7D /* PlaybackStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC973322A0D1D8005F3B7D /* PlaybackStateMachine.swift */; };
 		C5FC973622A0D61B005F3B7D /* PlaybackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC973522A0D61B005F3B7D /* PlaybackState.swift */; };
@@ -49,6 +50,7 @@
 		C50D7DAC22A04BEB00BAC840 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5BDF5E622ADBA4D00933882 /* ProjectorView+Public_API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProjectorView+Public_API.swift"; sourceTree = "<group>"; };
 		C5BDF5E822ADBC8E00933882 /* ProjectorView+PlayerControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProjectorView+PlayerControls.swift"; sourceTree = "<group>"; };
+		C5BDF5EA22ADBEEB00933882 /* ProjectorView+TimerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProjectorView+TimerAPI.swift"; sourceTree = "<group>"; };
 		C5FC96F622A0BD77005F3B7D /* ProjectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectorView.swift; sourceTree = "<group>"; };
 		C5FC973322A0D1D8005F3B7D /* PlaybackStateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackStateMachine.swift; sourceTree = "<group>"; };
 		C5FC973522A0D61B005F3B7D /* PlaybackState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackState.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				C5FC96F622A0BD77005F3B7D /* ProjectorView.swift */,
 				C5BDF5E622ADBA4D00933882 /* ProjectorView+Public_API.swift */,
 				C5BDF5E822ADBC8E00933882 /* ProjectorView+PlayerControls.swift */,
+				C5BDF5EA22ADBEEB00933882 /* ProjectorView+TimerAPI.swift */,
 				C5FC973D22A12356005F3B7D /* ProjectorView.xib */,
 				C5FC97DC22A3518A005F3B7D /* Sub Views */,
 				C5FC973222A0C1C1005F3B7D /* Models */,
@@ -328,6 +331,7 @@
 				C5FC973C22A102C5005F3B7D /* StateMachine.swift in Sources */,
 				C5FC97F422A501D6005F3B7D /* StateMachineDelegate.swift in Sources */,
 				C5BDF5E922ADBC8E00933882 /* ProjectorView+PlayerControls.swift in Sources */,
+				C5BDF5EB22ADBEEB00933882 /* ProjectorView+TimerAPI.swift in Sources */,
 				C5FC97E922A47404005F3B7D /* WaterMarkImageView.swift in Sources */,
 				C5FC97DB22A35176005F3B7D /* LoadingAnimationView.swift in Sources */,
 				C5FC96F722A0BD77005F3B7D /* ProjectorView.swift in Sources */,

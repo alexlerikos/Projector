@@ -48,12 +48,12 @@ public class ProjectorView: UIView {
     // Properties
     private let nibName = "ProjectorView"
     internal let requiredAssetKeys = ["playable", "hasProtectedContent"]
-    private let gcdTimerQueue: DispatchQueue = DispatchQueue(label: "GCDTimerQueue")
+    internal let gcdTimerQueue: DispatchQueue = DispatchQueue(label: "GCDTimerQueue")
     
     internal var contentView: UIView!
     internal var stateMachine:PlaybackStateMachine!
     internal var loggingEnabled:Bool = false
-    private var gcdTimer:DispatchSourceTimer?
+    internal var gcdTimer:DispatchSourceTimer?
 
     // IB Views
     @IBOutlet weak var progressBarSlider: ProgressSliderView!
@@ -269,37 +269,5 @@ public class ProjectorView: UIView {
         print(message)
     }
 
-    /**
-     # startControlsTimer
-     3 second timer that resets at each touch
-    */
-    
-    internal func startControlsTimer(_ delay: Int = 3){
-        self.scheduledTimerWithTimeInterval(interval: delay, executionBlock:{() -> Void in
-            DispatchQueue.main.async {
-                self.controlsContainerView.fadeOut()
-            }
-        }, repeats: false)
-    }
-    
-    internal func cancelControlsTimer(){
-        self.gcdTimer?.cancel()
-        self.gcdTimer = nil
-    }
-    
-    
-    // based on http://www.acttos.org/2016/08/NSTimer-and-GCD-Timer-in-iOS/
-    internal func scheduledTimerWithTimeInterval(interval: Int, executionBlock:@escaping GCDTimerBlock, repeats: Bool) -> Void {
-        if (self.gcdTimer != nil) {
-            self.gcdTimer!.cancel();
-        }
-        self.gcdTimer = DispatchSource.makeTimerSource(flags: [], queue: self.gcdTimerQueue)
-        
-        self.gcdTimer?.schedule(deadline: DispatchTime.now() + DispatchTimeInterval.seconds(interval))
-        
-        self.gcdTimer?.setEventHandler(handler: DispatchWorkItem(block: executionBlock))
-        
-        self.printMessage("Controls visibility GCD timer will resume");
-        gcdTimer!.resume();
-    }
+
 }
