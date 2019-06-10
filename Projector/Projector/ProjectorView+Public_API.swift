@@ -35,7 +35,7 @@ extension ProjectorView {
         self.playerLayer.videoGravity = videoGravity
     }
     
-    public func setLoggingEnabled(_ enabled:Bool){
+    public func setDebugLoggingEnabled(_ enabled:Bool){
         self.loggingEnabled = enabled
         self.playPauseButton.debugOn = enabled
     }
