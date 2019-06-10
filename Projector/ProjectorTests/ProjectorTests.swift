@@ -13,9 +13,11 @@ class ProjectorTests: XCTestCase {
     
     
     var playbackStateMachine: PlaybackStateMachine!
+    var playbackButtonStateMachine: PlaybackButtonStateMachine!
     
     override func setUp() {
         self.playbackStateMachine = PlaybackStateMachine(dispatchQueue: DispatchQueue.main)
+        self.playbackButtonStateMachine = PlaybackButtonStateMachine(dispatchQueue: DispatchQueue.main)
     }
 
     override func tearDown() {
@@ -27,9 +29,14 @@ class ProjectorTests: XCTestCase {
         XCTAssertEqual(self.playbackStateMachine.stateMachine.currentState, .stopped)
     }
     
-    func testTransitionCount() {
-        XCTAssertEqual(self.playbackStateMachine.stateMachineTransitions().count, 9)
+    func testPlaybackStateMachineTransitionCount() {
+        XCTAssertEqual(self.playbackStateMachine.stateMachineTransitions().count, 10)
     }
+    
+    func testPlaybackButtonTransitionCount() {
+        XCTAssertEqual(self.playbackButtonStateMachine.stateMachineTransitions().count, 5)
+    }
+    
     
 
 
