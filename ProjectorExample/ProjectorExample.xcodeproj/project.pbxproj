@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C5BDF5ED22ADF94000933882 /* Tahoe-Orbit-Edit.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C5BDF5EC22ADF94000933882 /* Tahoe-Orbit-Edit.mp4 */; };
 		C5FC970522A0BE80005F3B7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC970422A0BE80005F3B7D /* AppDelegate.swift */; };
 		C5FC970722A0BE80005F3B7D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC970622A0BE80005F3B7D /* ViewController.swift */; };
 		C5FC970A22A0BE80005F3B7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5FC970822A0BE80005F3B7D /* Main.storyboard */; };
@@ -16,7 +17,6 @@
 		C5FC972522A0BE81005F3B7D /* ProjectorExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC972422A0BE81005F3B7D /* ProjectorExampleUITests.swift */; };
 		C5FC97C622A1EE64005F3B7D /* Projector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5FC97C522A1EE64005F3B7D /* Projector.framework */; };
 		C5FC97C722A1EE64005F3B7D /* Projector.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C5FC97C522A1EE64005F3B7D /* Projector.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C5FC97D222A1F4CB005F3B7D /* EJ_pass.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C5FC97D122A1F4CB005F3B7D /* EJ_pass.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +51,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C5BDF5EC22ADF94000933882 /* Tahoe-Orbit-Edit.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tahoe-Orbit-Edit.mp4"; sourceTree = "<group>"; };
 		C5FC970122A0BE80005F3B7D /* ProjectorExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectorExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5FC970422A0BE80005F3B7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C5FC970622A0BE80005F3B7D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -65,7 +66,6 @@
 		C5FC972422A0BE81005F3B7D /* ProjectorExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectorExampleUITests.swift; sourceTree = "<group>"; };
 		C5FC972622A0BE81005F3B7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5FC97C522A1EE64005F3B7D /* Projector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Projector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C5FC97D122A1F4CB005F3B7D /* EJ_pass.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = EJ_pass.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,7 +121,7 @@
 				C5FC970422A0BE80005F3B7D /* AppDelegate.swift */,
 				C5FC970622A0BE80005F3B7D /* ViewController.swift */,
 				C5FC970822A0BE80005F3B7D /* Main.storyboard */,
-				C5FC97D122A1F4CB005F3B7D /* EJ_pass.mp4 */,
+				C5BDF5EC22ADF94000933882 /* Tahoe-Orbit-Edit.mp4 */,
 				C5FC970B22A0BE81005F3B7D /* Assets.xcassets */,
 				C5FC970D22A0BE81005F3B7D /* LaunchScreen.storyboard */,
 				C5FC971022A0BE81005F3B7D /* Info.plist */,
@@ -253,9 +253,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5FC970F22A0BE81005F3B7D /* LaunchScreen.storyboard in Resources */,
+				C5BDF5ED22ADF94000933882 /* Tahoe-Orbit-Edit.mp4 in Resources */,
 				C5FC970C22A0BE81005F3B7D /* Assets.xcassets in Resources */,
 				C5FC970A22A0BE80005F3B7D /* Main.storyboard in Resources */,
-				C5FC97D222A1F4CB005F3B7D /* EJ_pass.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

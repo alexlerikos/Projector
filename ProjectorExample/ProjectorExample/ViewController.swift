@@ -11,7 +11,7 @@ import Projector
 
 class ViewController: UIViewController {
     
-    let kVideoName = "EJ_pass"
+    let kVideoName = "Tahoe-Orbit-Edit"
     let kVideoType = "mp4"
     
     let sliderColor = UIColor(red:44.0/255.0, green:62.0/255.0, blue:88.0/255.0, alpha:1.0)
