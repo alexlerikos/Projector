@@ -12,12 +12,12 @@ import AVFoundation
 extension ProjectorView {
     internal func playFromBeginning() {
         self.player?.seek(to: CMTime.zero)
-        self.stateMachine.stateMachine.process(event: .playBackStarted, callback: { result in
+        self.playbackStateMachine.process(event: .playBackStarted, callback: { result in
             switch result {
             case .success:
                 self.playFromCurrentTime()
             case .failure:
-                self.printMessage("Error changing state from: \(self.stateMachine.stateMachine.currentState)")
+                self.printMessage("Error changing state from: \(self.playbackStateMachine.currentState)")
             }
         })
         
@@ -30,7 +30,7 @@ extension ProjectorView {
     }
     
     internal func pause() {
-        guard self.stateMachine.stateMachine.currentState == .paused else {
+        guard self.playbackStateMachine.currentState == .paused else {
             return
         }
         self.playPauseButton.buttonStateEvent(.pauseEvent)
@@ -38,14 +38,14 @@ extension ProjectorView {
     }
     
     internal func playbackFinished(){
-        self.stateMachine.stateMachine.process(event: .playbackFinished, callback: { result in
+        self.playbackStateMachine.process(event: .playbackFinished, callback: { result in
             switch result {
             case .success:
-                self.printMessage("success current state: \(self.stateMachine.stateMachine.currentState)")
+                self.printMessage("success current state: \(self.playbackStateMachine.currentState)")
                 self.playPauseButton.buttonStateEvent(.finishedEvent)
                 self.controlsContainerView.fadeIn()
             case .failure:
-                self.printMessage("Error changing state from: \(self.stateMachine.stateMachine.currentState)")
+                self.printMessage("Error changing state from: \(self.playbackStateMachine.currentState)")
             }
         })
     }

@@ -48,10 +48,10 @@ public class ProjectorView: UIView {
     // Properties
     private let nibName = "ProjectorView"
     internal let requiredAssetKeys = ["playable", "hasProtectedContent"]
-    internal let gcdTimerQueue: DispatchQueue = DispatchQueue(label: "GCDTimerQueue")
+    internal var gcdTimerQueue: DispatchQueue = DispatchQueue(label: "GCDTimerQueue")
     
     internal var contentView: UIView!
-    internal var stateMachine:PlaybackStateMachine!
+    internal var playbackStateMachine:StateMachine<PlaybackState, PlaybackEvent>!
     internal var loggingEnabled:Bool = false
     internal var gcdTimer:DispatchSourceTimer?
 
@@ -101,7 +101,7 @@ public class ProjectorView: UIView {
         
         self.singleTapGestureRecognizer.require(toFail: self.doubleTapGestureRecognizer)
         
-        stateMachine = PlaybackStateMachine(dispatchQueue: dispatchQueue)
+        playbackStateMachine = PlaybackStateMachine(dispatchQueue: dispatchQueue).stateMachine
         self.addTimeObserver()
         
         // delete this later, just for skeleton implementation
@@ -190,19 +190,19 @@ public class ProjectorView: UIView {
     
     // MARK: IBA Actions
     @IBAction func playPauseButtonPressed(_ sender: Any) {
-        self.printMessage("currennt state \(self.stateMachine.stateMachine.currentState)")
-        self.stateMachine.stateMachine.process(event: .playPauseTriggered, callback: { result in
+        self.printMessage("currennt state \(self.playbackStateMachine.currentState)")
+        self.playbackStateMachine.process(event: .playPauseTriggered, callback: { result in
             switch result {
             case .success:
-                if self.stateMachine.stateMachine.currentState == .paused {
+                if self.playbackStateMachine.currentState == .paused {
                     self.pause()
-                } else if self.stateMachine.stateMachine.currentState == .playing {
+                } else if self.playbackStateMachine.currentState == .playing {
                     self.playFromCurrentTime()
-                } else if self.stateMachine.stateMachine.currentState == .playFromBeginning {
+                } else if self.playbackStateMachine.currentState == .playFromBeginning {
                     self.playFromBeginning()
                 }
             case .failure:
-                self.printMessage("Error changing state from: \(self.stateMachine.stateMachine.currentState)")
+                self.printMessage("Error changing state from: \(self.playbackStateMachine.currentState)")
             }
         })
     }

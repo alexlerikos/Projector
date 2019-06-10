@@ -55,11 +55,7 @@ class PlaybackButtonStateMachine: NSObject, StateMachineDelegate {
         
         var transitions:[Transition<ButtonState, ButtonEvent>] = []
         
-        transitions.append(t1)
-        transitions.append(t2)
-        transitions.append(t3)
-        transitions.append(t4)
-        transitions.append(t5)
+        transitions += [t1,t2,t3,t4,t5]
         return transitions
     }
 }

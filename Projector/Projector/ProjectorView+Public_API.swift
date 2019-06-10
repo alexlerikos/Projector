@@ -17,9 +17,10 @@ extension ProjectorView {
         playerItem.addObserver(self, forKeyPath: #keyPath(AVPlayerItem.isPlaybackBufferFull), options: [.new], context: &playerItemContext)
         playerItem.addObserver(self, forKeyPath: #keyPath(AVPlayerItem.isPlaybackLikelyToKeepUp), options: [.new], context: &playerItemContext)
         playerItem.addObserver(self, forKeyPath: #keyPath(AVPlayerItem.isPlaybackBufferEmpty), options: [.new], context: &playerItemContext)
-        
         self.player?.replaceCurrentItem(with: playerItem)
         self.addTimeObserver()
+        
+        self.gcdTimerQueue = DispatchQueue(label: "GCDTimerQueue+\(videoURL.absoluteString)")
     }
     
     public func setWaterMarkImage(_ image:UIImage, alpha:CGFloat? = nil){
