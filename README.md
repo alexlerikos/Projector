@@ -5,9 +5,9 @@
 # Projector
 An AVFoundation based video player that allows the color scheme and UI to be easily changed to your product's branding specifications
 
-## Setup
+## Example Setup
 
-- import the Projector Framework and Add it to your View Controller
+- Import the Projector framework and add it to your View or View Controller
 
 ```swift
 import Projector
@@ -22,7 +22,8 @@ class ViewController: UIViewController {
 }
 ```
 
-- Add your app's UI Color Scheme, water-mark and video to the ProjectorView object
+- Set the player to use your app's color scheme and water-mark
+- Load the URL of your video into the ProjectorView's API
 
 ```swift
 override func viewDidLoad() {
