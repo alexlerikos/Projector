@@ -3,7 +3,7 @@
 </p>
 
 # Projector
-A template AVFoundation based video player that allows color scheme and UI to be easily changed to your products branding specifications
+An AVFoundation based video player that allows the color scheme and UI to be easily changed to your product's branding specifications
 
 ## Setup
 
