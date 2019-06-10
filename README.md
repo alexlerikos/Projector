@@ -25,7 +25,7 @@ class ViewController: UIViewController {
 - Add your app's UI Color Scheme, water-mark and video to the ProjectorView object
 
 ```swift
-overide viewDidLoad(){
+override func viewDidLoad(){
 	super.viewDidLoad()
 	let videoURL = URL(fileURLWithPath: Bundle.main.path(forResource: kVideoName, ofType: kVideoType)!)
 	//or 
