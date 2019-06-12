@@ -60,6 +60,9 @@ public func setControlsButtonImageForRestart(_ image:UIImage)
  public func setLoggingEnabled(_ enabled:Bool)
 ```
 
+## Todo
+1. Release Projector as a Cocoapod
+
 ## Author 
 Alex Lerikos (alerikos@gmail.com)
 
