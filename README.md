@@ -60,7 +60,7 @@ public func setControlsButtonImageForRestart(_ image:UIImage)
  public func setLoggingEnabled(_ enabled:Bool)
 ```
 
-## Todo
+## To-do's
 1. Release Projector as a Cocoapod
 2. Add public API to change Loading Animation
 3. Add current play time and time remaining labels
