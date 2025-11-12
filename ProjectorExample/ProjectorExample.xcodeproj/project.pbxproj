@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		C52864882EC4A4440056F9F6 /* Projector in Frameworks */ = {isa = PBXBuildFile; productRef = C52864872EC4A4440056F9F6 /* Projector */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		C528642F2EC4929E0056F9F6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -65,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C52864882EC4A4440056F9F6 /* Projector in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +138,7 @@
 			);
 			name = ProjectorExample;
 			packageProductDependencies = (
+				C52864872EC4A4440056F9F6 /* Projector */,
 			);
 			productName = ProjectorExample;
 			productReference = C52864182EC4929D0056F9F6 /* ProjectorExample.app */;
@@ -217,6 +223,7 @@
 			mainGroup = C528640F2EC4929D0056F9F6;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
+				C52864862EC4A4440056F9F6 /* XCRemoteSwiftPackageReference "Projector" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = C52864192EC4929D0056F9F6 /* Products */;
@@ -601,6 +608,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C52864862EC4A4440056F9F6 /* XCRemoteSwiftPackageReference "Projector" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alexlerikos/Projector";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C52864872EC4A4440056F9F6 /* Projector */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C52864862EC4A4440056F9F6 /* XCRemoteSwiftPackageReference "Projector" */;
+			productName = Projector;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C52864102EC4929D0056F9F6 /* Project object */;
 }
