@@ -61,7 +61,7 @@ public func setControlsButtonImageForRestart(_ image:UIImage)
 ```
 
 ## To-do's
-1. Release Projector as a Cocoapod
+~~1. Release Projector as a SPM~~
 2. Add public API to change Loading Animation
 3. Add current play time and time remaining labels
 3a. Add public API to modify the aformentioned labels font and color
