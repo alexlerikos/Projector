@@ -3,7 +3,7 @@
 //  Projector
 //
 //  Created by Alex Lerikos on 5/31/19.
-//  Copyright © 2019 kosdesigns. All rights reserved.
+//  Copyright © 2019 UhuApps. All rights reserved.
 //
 
 import Foundation

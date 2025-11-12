@@ -3,7 +3,7 @@
 //  Projector
 //
 //  Created by Alex Lerikos on 6/2/19.
-//  Copyright © 2019 kosdesigns. All rights reserved.
+//  Copyright © 2019 UhuApps. All rights reserved.
 //
 
 import UIKit
@@ -15,8 +15,8 @@ class PlayPauseRestartButton: UIButton {
     
     // Private Properties
     private var buttonStateMachine: PlaybackButtonStateMachine!
-    private var buttonStateImages: [ButtonState:UIImage]!
-    private let bundle = Bundle(identifier: "com.kosdesigns.Projector")
+    private var buttonStateImages: [ButtonState: UIImage]!
+    private let bundle = Bundle.module
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
@@ -36,9 +36,9 @@ class PlayPauseRestartButton: UIButton {
         self.buttonStateMachine = PlaybackButtonStateMachine(dispatchQueue: .main)
         self.buttonStateImages = [:]
         self.setTitle("", for: .normal)
-        self.buttonStateImages[ButtonState.restart] = UIImage(named: "playbackbtn-restart",in: bundle, compatibleWith: nil)
-        self.buttonStateImages[ButtonState.paused] = UIImage(named: "playbackbtn-paused",in: bundle, compatibleWith: nil)
-        self.buttonStateImages[ButtonState.playing] = UIImage(named: "playbackbtn-playing",in: bundle, compatibleWith: nil)
+        self.buttonStateImages[ButtonState.restart] = UIImage(named: "playbackbtn-restart", in: bundle, compatibleWith: nil)
+        self.buttonStateImages[ButtonState.paused] = UIImage(named: "playbackbtn-paused", in: bundle, compatibleWith: nil)
+        self.buttonStateImages[ButtonState.playing] = UIImage(named: "playbackbtn-playing", in: bundle, compatibleWith: nil)
         self.setImage(self.buttonStateImages[self.buttonStateMachine.stateMachine.currentState], for: .normal)
     }
     

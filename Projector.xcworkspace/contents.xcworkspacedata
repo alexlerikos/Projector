@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Projector/Projector.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:ProjectorExample/ProjectorExample.xcodeproj">
    </FileRef>
 </Workspace>

@@ -3,7 +3,7 @@
 //  Projector
 //
 //  Created by Alex Lerikos on 5/30/19.
-//  Copyright © 2019 kosdesigns. All rights reserved.
+//  Copyright © 2019 UhuApps. All rights reserved.
 //
 
 import UIKit
@@ -88,9 +88,8 @@ public class ProjectorView: UIView {
     }
     
     
-    private func setUpView(dispatchQueue:DispatchQueue){
-        let bundle = Bundle(for: type(of: self))
-        let nib = UINib(nibName: self.nibName, bundle: bundle)
+    private func setUpView(dispatchQueue: DispatchQueue){
+        let nib = UINib(nibName: self.nibName, bundle: .module)
         self.contentView = (nib.instantiate(withOwner: self, options: nil).first as! UIView)
         self.addSubview(contentView)
         

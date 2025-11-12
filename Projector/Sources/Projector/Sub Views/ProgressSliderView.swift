@@ -3,16 +3,16 @@
 //  Projector
 //
 //  Created by Alex Lerikos on 6/2/19.
-//  Copyright © 2019 kosdesigns. All rights reserved.
+//  Copyright © 2019 UhuApps. All rights reserved.
 //
 
 import UIKit
 
 class ProgressSliderView: UISlider {
     
-    private var sliderThumbImageUntouched:UIImage?
-    private var sliderTintColor:UIColor?
-    private var sliderThumbImageTouched:UIImage?
+    private var sliderThumbImageUntouched: UIImage?
+    private var sliderTintColor: UIColor?
+    private var sliderThumbImageTouched: UIImage?
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
@@ -40,12 +40,12 @@ class ProgressSliderView: UISlider {
         self.setUpView()
     }
     
-    public func setSliderThumbImageUntouched(_ image:UIImage){
+    public func setSliderThumbImageUntouched(_ image: UIImage){
         self.sliderThumbImageUntouched = image
         self.setUpView()
     }
     
-    public func setSliderThumbImagTouched(_ image:UIImage){
+    public func setSliderThumbImagTouched(_ image: UIImage){
         self.sliderThumbImageTouched = image
         self.setUpView()
     }

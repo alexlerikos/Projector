@@ -3,14 +3,14 @@
 //  Projector
 //
 //  Created by Alex Lerikos on 6/9/19.
-//  Copyright © 2019 kosdesigns. All rights reserved.
+//  Copyright © 2019 UhuApps. All rights reserved.
 //
 
 import UIKit
 import AVFoundation
 
 extension ProjectorView {
-    public func loadURLAsset(_ videoURL:URL){
+    public func loadURLAsset(_ videoURL: URL){
         let asset = AVAsset(url: videoURL)
         let playerItem = AVPlayerItem(asset: asset, automaticallyLoadedAssetKeys: requiredAssetKeys)
         

@@ -3,88 +3,84 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 77;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C5BDF5ED22ADF94000933882 /* Tahoe-Orbit-Edit.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C5BDF5EC22ADF94000933882 /* Tahoe-Orbit-Edit.mp4 */; };
-		C5FC970522A0BE80005F3B7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC970422A0BE80005F3B7D /* AppDelegate.swift */; };
-		C5FC970722A0BE80005F3B7D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC970622A0BE80005F3B7D /* ViewController.swift */; };
-		C5FC970A22A0BE80005F3B7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5FC970822A0BE80005F3B7D /* Main.storyboard */; };
-		C5FC970C22A0BE81005F3B7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5FC970B22A0BE81005F3B7D /* Assets.xcassets */; };
-		C5FC970F22A0BE81005F3B7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5FC970D22A0BE81005F3B7D /* LaunchScreen.storyboard */; };
-		C5FC971A22A0BE81005F3B7D /* ProjectorExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC971922A0BE81005F3B7D /* ProjectorExampleTests.swift */; };
-		C5FC972522A0BE81005F3B7D /* ProjectorExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FC972422A0BE81005F3B7D /* ProjectorExampleUITests.swift */; };
-		C5FC97C622A1EE64005F3B7D /* Projector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5FC97C522A1EE64005F3B7D /* Projector.framework */; };
-		C5FC97C722A1EE64005F3B7D /* Projector.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C5FC97C522A1EE64005F3B7D /* Projector.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C528644F2EC493360056F9F6 /* Projector in Frameworks */ = {isa = PBXBuildFile; productRef = C528644E2EC493360056F9F6 /* Projector */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C5FC971622A0BE81005F3B7D /* PBXContainerItemProxy */ = {
+		C528642F2EC4929E0056F9F6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C5FC96F922A0BE80005F3B7D /* Project object */;
+			containerPortal = C52864102EC4929D0056F9F6 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = C5FC970022A0BE80005F3B7D;
+			remoteGlobalIDString = C52864172EC4929D0056F9F6;
 			remoteInfo = ProjectorExample;
 		};
-		C5FC972122A0BE81005F3B7D /* PBXContainerItemProxy */ = {
+		C52864392EC4929E0056F9F6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C5FC96F922A0BE80005F3B7D /* Project object */;
+			containerPortal = C52864102EC4929D0056F9F6 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = C5FC970022A0BE80005F3B7D;
+			remoteGlobalIDString = C52864172EC4929D0056F9F6;
 			remoteInfo = ProjectorExample;
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		C5FC97C822A1EE64005F3B7D /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				C5FC97C722A1EE64005F3B7D /* Projector.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		C5BDF5EC22ADF94000933882 /* Tahoe-Orbit-Edit.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tahoe-Orbit-Edit.mp4"; sourceTree = "<group>"; };
-		C5FC970122A0BE80005F3B7D /* ProjectorExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectorExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C5FC970422A0BE80005F3B7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C5FC970622A0BE80005F3B7D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C5FC970922A0BE80005F3B7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C5FC970B22A0BE81005F3B7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C5FC970E22A0BE81005F3B7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		C5FC971022A0BE81005F3B7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C5FC971522A0BE81005F3B7D /* ProjectorExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjectorExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C5FC971922A0BE81005F3B7D /* ProjectorExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectorExampleTests.swift; sourceTree = "<group>"; };
-		C5FC971B22A0BE81005F3B7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C5FC972022A0BE81005F3B7D /* ProjectorExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjectorExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C5FC972422A0BE81005F3B7D /* ProjectorExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectorExampleUITests.swift; sourceTree = "<group>"; };
-		C5FC972622A0BE81005F3B7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C5FC97C522A1EE64005F3B7D /* Projector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Projector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C52864182EC4929D0056F9F6 /* ProjectorExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectorExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C528642E2EC4929E0056F9F6 /* ProjectorExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjectorExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C52864382EC4929E0056F9F6 /* ProjectorExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjectorExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		C52864402EC4929E0056F9F6 /* Exceptions for "ProjectorExample" folder in "ProjectorExample" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = C52864172EC4929D0056F9F6 /* ProjectorExample */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		C528641A2EC4929D0056F9F6 /* ProjectorExample */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				C52864402EC4929E0056F9F6 /* Exceptions for "ProjectorExample" folder in "ProjectorExample" target */,
+			);
+			path = ProjectorExample;
+			sourceTree = "<group>";
+		};
+		C52864312EC4929E0056F9F6 /* ProjectorExampleTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ProjectorExampleTests;
+			sourceTree = "<group>";
+		};
+		C528643B2EC4929E0056F9F6 /* ProjectorExampleUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ProjectorExampleUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
-		C5FC96FE22A0BE80005F3B7D /* Frameworks */ = {
+		C52864152EC4929D0056F9F6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5FC97C622A1EE64005F3B7D /* Projector.framework in Frameworks */,
+				C528644F2EC493360056F9F6 /* Projector in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C5FC971222A0BE81005F3B7D /* Frameworks */ = {
+		C528642B2EC4929E0056F9F6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C5FC971D22A0BE81005F3B7D /* Frameworks */ = {
+		C52864352EC4929E0056F9F6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -94,179 +90,169 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C5FC96F822A0BE80005F3B7D = {
+		C528640F2EC4929D0056F9F6 = {
 			isa = PBXGroup;
 			children = (
-				C5FC970322A0BE80005F3B7D /* ProjectorExample */,
-				C5FC97C522A1EE64005F3B7D /* Projector.framework */,
-				C5FC971822A0BE81005F3B7D /* ProjectorExampleTests */,
-				C5FC972322A0BE81005F3B7D /* ProjectorExampleUITests */,
-				C5FC970222A0BE80005F3B7D /* Products */,
+				C528641A2EC4929D0056F9F6 /* ProjectorExample */,
+				C52864312EC4929E0056F9F6 /* ProjectorExampleTests */,
+				C528643B2EC4929E0056F9F6 /* ProjectorExampleUITests */,
+				C528644D2EC493360056F9F6 /* Frameworks */,
+				C52864192EC4929D0056F9F6 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		C5FC970222A0BE80005F3B7D /* Products */ = {
+		C52864192EC4929D0056F9F6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C5FC970122A0BE80005F3B7D /* ProjectorExample.app */,
-				C5FC971522A0BE81005F3B7D /* ProjectorExampleTests.xctest */,
-				C5FC972022A0BE81005F3B7D /* ProjectorExampleUITests.xctest */,
+				C52864182EC4929D0056F9F6 /* ProjectorExample.app */,
+				C528642E2EC4929E0056F9F6 /* ProjectorExampleTests.xctest */,
+				C52864382EC4929E0056F9F6 /* ProjectorExampleUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C5FC970322A0BE80005F3B7D /* ProjectorExample */ = {
+		C528644D2EC493360056F9F6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C5FC970422A0BE80005F3B7D /* AppDelegate.swift */,
-				C5FC970622A0BE80005F3B7D /* ViewController.swift */,
-				C5FC970822A0BE80005F3B7D /* Main.storyboard */,
-				C5BDF5EC22ADF94000933882 /* Tahoe-Orbit-Edit.mp4 */,
-				C5FC970B22A0BE81005F3B7D /* Assets.xcassets */,
-				C5FC970D22A0BE81005F3B7D /* LaunchScreen.storyboard */,
-				C5FC971022A0BE81005F3B7D /* Info.plist */,
 			);
-			path = ProjectorExample;
-			sourceTree = "<group>";
-		};
-		C5FC971822A0BE81005F3B7D /* ProjectorExampleTests */ = {
-			isa = PBXGroup;
-			children = (
-				C5FC971922A0BE81005F3B7D /* ProjectorExampleTests.swift */,
-				C5FC971B22A0BE81005F3B7D /* Info.plist */,
-			);
-			path = ProjectorExampleTests;
-			sourceTree = "<group>";
-		};
-		C5FC972322A0BE81005F3B7D /* ProjectorExampleUITests */ = {
-			isa = PBXGroup;
-			children = (
-				C5FC972422A0BE81005F3B7D /* ProjectorExampleUITests.swift */,
-				C5FC972622A0BE81005F3B7D /* Info.plist */,
-			);
-			path = ProjectorExampleUITests;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C5FC970022A0BE80005F3B7D /* ProjectorExample */ = {
+		C52864172EC4929D0056F9F6 /* ProjectorExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C5FC972922A0BE81005F3B7D /* Build configuration list for PBXNativeTarget "ProjectorExample" */;
+			buildConfigurationList = C52864412EC4929E0056F9F6 /* Build configuration list for PBXNativeTarget "ProjectorExample" */;
 			buildPhases = (
-				C5FC96FD22A0BE80005F3B7D /* Sources */,
-				C5FC96FE22A0BE80005F3B7D /* Frameworks */,
-				C5FC96FF22A0BE80005F3B7D /* Resources */,
-				C5FC97C822A1EE64005F3B7D /* Embed Frameworks */,
+				C52864142EC4929D0056F9F6 /* Sources */,
+				C52864152EC4929D0056F9F6 /* Frameworks */,
+				C52864162EC4929D0056F9F6 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				C528641A2EC4929D0056F9F6 /* ProjectorExample */,
 			);
 			name = ProjectorExample;
+			packageProductDependencies = (
+				C528644E2EC493360056F9F6 /* Projector */,
+			);
 			productName = ProjectorExample;
-			productReference = C5FC970122A0BE80005F3B7D /* ProjectorExample.app */;
+			productReference = C52864182EC4929D0056F9F6 /* ProjectorExample.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C5FC971422A0BE81005F3B7D /* ProjectorExampleTests */ = {
+		C528642D2EC4929E0056F9F6 /* ProjectorExampleTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C5FC972C22A0BE81005F3B7D /* Build configuration list for PBXNativeTarget "ProjectorExampleTests" */;
+			buildConfigurationList = C52864462EC4929E0056F9F6 /* Build configuration list for PBXNativeTarget "ProjectorExampleTests" */;
 			buildPhases = (
-				C5FC971122A0BE81005F3B7D /* Sources */,
-				C5FC971222A0BE81005F3B7D /* Frameworks */,
-				C5FC971322A0BE81005F3B7D /* Resources */,
+				C528642A2EC4929E0056F9F6 /* Sources */,
+				C528642B2EC4929E0056F9F6 /* Frameworks */,
+				C528642C2EC4929E0056F9F6 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				C5FC971722A0BE81005F3B7D /* PBXTargetDependency */,
+				C52864302EC4929E0056F9F6 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				C52864312EC4929E0056F9F6 /* ProjectorExampleTests */,
 			);
 			name = ProjectorExampleTests;
+			packageProductDependencies = (
+			);
 			productName = ProjectorExampleTests;
-			productReference = C5FC971522A0BE81005F3B7D /* ProjectorExampleTests.xctest */;
+			productReference = C528642E2EC4929E0056F9F6 /* ProjectorExampleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		C5FC971F22A0BE81005F3B7D /* ProjectorExampleUITests */ = {
+		C52864372EC4929E0056F9F6 /* ProjectorExampleUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C5FC972F22A0BE81005F3B7D /* Build configuration list for PBXNativeTarget "ProjectorExampleUITests" */;
+			buildConfigurationList = C52864492EC4929E0056F9F6 /* Build configuration list for PBXNativeTarget "ProjectorExampleUITests" */;
 			buildPhases = (
-				C5FC971C22A0BE81005F3B7D /* Sources */,
-				C5FC971D22A0BE81005F3B7D /* Frameworks */,
-				C5FC971E22A0BE81005F3B7D /* Resources */,
+				C52864342EC4929E0056F9F6 /* Sources */,
+				C52864352EC4929E0056F9F6 /* Frameworks */,
+				C52864362EC4929E0056F9F6 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				C5FC972222A0BE81005F3B7D /* PBXTargetDependency */,
+				C528643A2EC4929E0056F9F6 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				C528643B2EC4929E0056F9F6 /* ProjectorExampleUITests */,
 			);
 			name = ProjectorExampleUITests;
+			packageProductDependencies = (
+			);
 			productName = ProjectorExampleUITests;
-			productReference = C5FC972022A0BE81005F3B7D /* ProjectorExampleUITests.xctest */;
+			productReference = C52864382EC4929E0056F9F6 /* ProjectorExampleUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		C5FC96F922A0BE80005F3B7D /* Project object */ = {
+		C52864102EC4929D0056F9F6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1020;
-				LastUpgradeCheck = 1020;
-				ORGANIZATIONNAME = kosdesigns;
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2610;
+				LastUpgradeCheck = 2610;
 				TargetAttributes = {
-					C5FC970022A0BE80005F3B7D = {
-						CreatedOnToolsVersion = 10.2.1;
+					C52864172EC4929D0056F9F6 = {
+						CreatedOnToolsVersion = 26.1;
 					};
-					C5FC971422A0BE81005F3B7D = {
-						CreatedOnToolsVersion = 10.2.1;
-						TestTargetID = C5FC970022A0BE80005F3B7D;
+					C528642D2EC4929E0056F9F6 = {
+						CreatedOnToolsVersion = 26.1;
+						TestTargetID = C52864172EC4929D0056F9F6;
 					};
-					C5FC971F22A0BE81005F3B7D = {
-						CreatedOnToolsVersion = 10.2.1;
-						TestTargetID = C5FC970022A0BE80005F3B7D;
+					C52864372EC4929E0056F9F6 = {
+						CreatedOnToolsVersion = 26.1;
+						TestTargetID = C52864172EC4929D0056F9F6;
 					};
 				};
 			};
-			buildConfigurationList = C5FC96FC22A0BE80005F3B7D /* Build configuration list for PBXProject "ProjectorExample" */;
-			compatibilityVersion = "Xcode 9.3";
+			buildConfigurationList = C52864132EC4929D0056F9F6 /* Build configuration list for PBXProject "ProjectorExample" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = C5FC96F822A0BE80005F3B7D;
-			productRefGroup = C5FC970222A0BE80005F3B7D /* Products */;
+			mainGroup = C528640F2EC4929D0056F9F6;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				C528644C2EC493290056F9F6 /* XCLocalSwiftPackageReference "../Projector" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = C52864192EC4929D0056F9F6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C5FC970022A0BE80005F3B7D /* ProjectorExample */,
-				C5FC971422A0BE81005F3B7D /* ProjectorExampleTests */,
-				C5FC971F22A0BE81005F3B7D /* ProjectorExampleUITests */,
+				C52864172EC4929D0056F9F6 /* ProjectorExample */,
+				C528642D2EC4929E0056F9F6 /* ProjectorExampleTests */,
+				C52864372EC4929E0056F9F6 /* ProjectorExampleUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		C5FC96FF22A0BE80005F3B7D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C5FC970F22A0BE81005F3B7D /* LaunchScreen.storyboard in Resources */,
-				C5BDF5ED22ADF94000933882 /* Tahoe-Orbit-Edit.mp4 in Resources */,
-				C5FC970C22A0BE81005F3B7D /* Assets.xcassets in Resources */,
-				C5FC970A22A0BE80005F3B7D /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C5FC971322A0BE81005F3B7D /* Resources */ = {
+		C52864162EC4929D0056F9F6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C5FC971E22A0BE81005F3B7D /* Resources */ = {
+		C528642C2EC4929E0056F9F6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C52864362EC4929E0056F9F6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -276,74 +262,115 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		C5FC96FD22A0BE80005F3B7D /* Sources */ = {
+		C52864142EC4929D0056F9F6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5FC970722A0BE80005F3B7D /* ViewController.swift in Sources */,
-				C5FC970522A0BE80005F3B7D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C5FC971122A0BE81005F3B7D /* Sources */ = {
+		C528642A2EC4929E0056F9F6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5FC971A22A0BE81005F3B7D /* ProjectorExampleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C5FC971C22A0BE81005F3B7D /* Sources */ = {
+		C52864342EC4929E0056F9F6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5FC972522A0BE81005F3B7D /* ProjectorExampleUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		C5FC971722A0BE81005F3B7D /* PBXTargetDependency */ = {
+		C52864302EC4929E0056F9F6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C5FC970022A0BE80005F3B7D /* ProjectorExample */;
-			targetProxy = C5FC971622A0BE81005F3B7D /* PBXContainerItemProxy */;
+			target = C52864172EC4929D0056F9F6 /* ProjectorExample */;
+			targetProxy = C528642F2EC4929E0056F9F6 /* PBXContainerItemProxy */;
 		};
-		C5FC972222A0BE81005F3B7D /* PBXTargetDependency */ = {
+		C528643A2EC4929E0056F9F6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C5FC970022A0BE80005F3B7D /* ProjectorExample */;
-			targetProxy = C5FC972122A0BE81005F3B7D /* PBXContainerItemProxy */;
+			target = C52864172EC4929D0056F9F6 /* ProjectorExample */;
+			targetProxy = C52864392EC4929E0056F9F6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		C5FC970822A0BE80005F3B7D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C5FC970922A0BE80005F3B7D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		C5FC970D22A0BE81005F3B7D /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C5FC970E22A0BE81005F3B7D /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
-		C5FC972722A0BE81005F3B7D /* Debug */ = {
+		C52864422EC4929E0056F9F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AMD4AC8KYB;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ProjectorExample/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.uhuApps.ProjectorExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C52864432EC4929E0056F9F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AMD4AC8KYB;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ProjectorExample/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.uhuApps.ProjectorExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C52864442EC4929E0056F9F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -362,18 +389,20 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = AMD4AC8KYB;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -387,24 +416,25 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		C5FC972822A0BE81005F3B7D /* Release */ = {
+		C52864452EC4929E0056F9F6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -423,18 +453,20 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = AMD4AC8KYB;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -442,130 +474,94 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		C5FC972A22A0BE81005F3B7D /* Debug */ = {
+		C52864472EC4929E0056F9F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AMD4AC8KYB;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
-				INFOPLIST_FILE = ProjectorExample/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kosdesigns.ProjectorExample;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.uhuApps.ProjectorExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProjectorExample.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ProjectorExample";
 			};
 			name = Debug;
 		};
-		C5FC972B22A0BE81005F3B7D /* Release */ = {
+		C52864482EC4929E0056F9F6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AMD4AC8KYB;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
-				INFOPLIST_FILE = ProjectorExample/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kosdesigns.ProjectorExample;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.uhuApps.ProjectorExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProjectorExample.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ProjectorExample";
 			};
 			name = Release;
 		};
-		C5FC972D22A0BE81005F3B7D /* Debug */ = {
+		C528644A2EC4929E0056F9F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AMD4AC8KYB;
-				INFOPLIST_FILE = ProjectorExampleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kosdesigns.ProjectorExampleTests;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.uhuApps.ProjectorExampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProjectorExample.app/ProjectorExample";
-			};
-			name = Debug;
-		};
-		C5FC972E22A0BE81005F3B7D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AMD4AC8KYB;
-				INFOPLIST_FILE = ProjectorExampleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kosdesigns.ProjectorExampleTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProjectorExample.app/ProjectorExample";
-			};
-			name = Release;
-		};
-		C5FC973022A0BE81005F3B7D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AMD4AC8KYB;
-				INFOPLIST_FILE = ProjectorExampleUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kosdesigns.ProjectorExampleUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = ProjectorExample;
 			};
 			name = Debug;
 		};
-		C5FC973122A0BE81005F3B7D /* Release */ = {
+		C528644B2EC4929E0056F9F6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AMD4AC8KYB;
-				INFOPLIST_FILE = ProjectorExampleUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kosdesigns.ProjectorExampleUITests;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.uhuApps.ProjectorExampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = ProjectorExample;
@@ -575,43 +571,58 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C5FC96FC22A0BE80005F3B7D /* Build configuration list for PBXProject "ProjectorExample" */ = {
+		C52864132EC4929D0056F9F6 /* Build configuration list for PBXProject "ProjectorExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C5FC972722A0BE81005F3B7D /* Debug */,
-				C5FC972822A0BE81005F3B7D /* Release */,
+				C52864442EC4929E0056F9F6 /* Debug */,
+				C52864452EC4929E0056F9F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C5FC972922A0BE81005F3B7D /* Build configuration list for PBXNativeTarget "ProjectorExample" */ = {
+		C52864412EC4929E0056F9F6 /* Build configuration list for PBXNativeTarget "ProjectorExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C5FC972A22A0BE81005F3B7D /* Debug */,
-				C5FC972B22A0BE81005F3B7D /* Release */,
+				C52864422EC4929E0056F9F6 /* Debug */,
+				C52864432EC4929E0056F9F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C5FC972C22A0BE81005F3B7D /* Build configuration list for PBXNativeTarget "ProjectorExampleTests" */ = {
+		C52864462EC4929E0056F9F6 /* Build configuration list for PBXNativeTarget "ProjectorExampleTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C5FC972D22A0BE81005F3B7D /* Debug */,
-				C5FC972E22A0BE81005F3B7D /* Release */,
+				C52864472EC4929E0056F9F6 /* Debug */,
+				C52864482EC4929E0056F9F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C5FC972F22A0BE81005F3B7D /* Build configuration list for PBXNativeTarget "ProjectorExampleUITests" */ = {
+		C52864492EC4929E0056F9F6 /* Build configuration list for PBXNativeTarget "ProjectorExampleUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C5FC973022A0BE81005F3B7D /* Debug */,
-				C5FC973122A0BE81005F3B7D /* Release */,
+				C528644A2EC4929E0056F9F6 /* Debug */,
+				C528644B2EC4929E0056F9F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		C528644C2EC493290056F9F6 /* XCLocalSwiftPackageReference "../Projector" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../Projector;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C528644E2EC493360056F9F6 /* Projector */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C528644C2EC493290056F9F6 /* XCLocalSwiftPackageReference "../Projector" */;
+			productName = Projector;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = C5FC96F922A0BE80005F3B7D /* Project object */;
+	rootObject = C52864102EC4929D0056F9F6 /* Project object */;
 }

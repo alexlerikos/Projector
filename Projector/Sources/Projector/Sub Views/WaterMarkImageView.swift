@@ -3,14 +3,14 @@
 //  Projector
 //
 //  Created by Alex Lerikos on 6/2/19.
-//  Copyright © 2019 kosdesigns. All rights reserved.
+//  Copyright © 2019 UhuApps. All rights reserved.
 //
 
 import UIKit
 
 class WaterMarkImageView: UIImageView {
 
-    private var waterMarkImage:UIImage?
+    private var waterMarkImage: UIImage?
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
@@ -30,7 +30,7 @@ class WaterMarkImageView: UIImageView {
         self.image = waterMarkImage
     }
     
-    public func setWaterMarkImage(_ image: UIImage, alpha:CGFloat = 0.5){
+    public func setWaterMarkImage(_ image: UIImage, alpha: CGFloat = 0.5){
         self.waterMarkImage = image
         self.alpha = alpha
         self.setUpView()
