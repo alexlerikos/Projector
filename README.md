@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/alexlerikos/Projector/blob/master/README-Images/Projector-Icon.png" alt="Projector by Alex Lerikos"/>
+  <img src="https://github.com/alexlerikos/Projector/blob/main/README-Images/Projector-Icon.png" alt="Projector by Alex Lerikos"/>
 </p>
 
 # Projector
